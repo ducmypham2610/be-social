@@ -52,7 +52,7 @@ exports.login = async (req, res, next) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../Client/src/Assets/Images");
+    cb(null, "../client/src/Assets/Images");
   },
   filename: (req, file, cb) => {
     cb(

@@ -10,6 +10,7 @@ export const API_HANDLE_SWIPE = API_BASE_URL + "swipe/like";
 
 export const API_ADD_POST = API_BASE_URL + "posts";
 export const API_GET_ALL_POSTS = API_BASE_URL + "posts";
+export const API_LIKE_POST = API_BASE_URL + "posts"
 
 export const API_SEND_MESSAGE = API_BASE_URL + "messages";
 export const API_GET_MESSAGE_FROM_CONVERSATION = API_BASE_URL + "messages/" // :conversationID

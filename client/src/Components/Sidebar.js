@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
@@ -20,9 +20,10 @@ import { getUser } from "../services/userService";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Link from "@mui/material/Link"
 
 const actions = [
-  { icon: <PublicIcon />, name: "Global" },
+  { icon: <Link to="/global"><PublicIcon /></Link> , name: "Global" },
   { icon: <AllInclusiveIcon />, name: "Infinity" },
   { icon: <AccountBalanceWalletIcon />, name: "Bank" },
   { icon: <SupportAgentIcon />, name: "Support" },
@@ -35,7 +36,7 @@ function Sidebar() {
   useEffect(() => {
     getUser(userId)
       .then((res) => setUser(res.data.user))
-      .catch((err) => console.log(12));
+      .catch((err) => console.log(err));
   }, []);
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
