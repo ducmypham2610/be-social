@@ -1,10 +1,14 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import TinderCard from "react-tinder-card";
-import { getUser, getGenderedUsers, updateMatches } from "../services/userService";
-import Nope from '@mui/icons-material/Clear';
-import Love from '@mui/icons-material/Favorite';
-import Back from '@mui/icons-material/SettingsBackupRestore';
-import { Fab } from '@mui/material';
+import {
+  getUser,
+  getGenderedUsers,
+  updateMatches,
+} from "../services/userService";
+import Nope from "@mui/icons-material/Clear";
+import Love from "@mui/icons-material/Favorite";
+import Back from "@mui/icons-material/SettingsBackupRestore";
+import { Fab } from "@mui/material";
 function SwipeCard() {
   const userId = localStorage.getItem("UserId");
   const [user, setUser] = useState(null);
@@ -49,7 +53,9 @@ function SwipeCard() {
     setLastDirection(direction);
     updateCurrentIndex(index - 1);
     if (direction === "right") {
-      updateMatches(userId,swipedUserId);
+      updateMatches(userId, swipedUserId)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
       // console.log(swipedUserId);
     }
   };
@@ -88,11 +94,11 @@ function SwipeCard() {
           ref={childRefs[index]}
           className="swipe"
           key={character.name}
-          onSwipe={(dir) => swiped(dir, character.name, index)}
+          onSwipe={(dir) => swiped(dir, character._id, index)}
           onCardLeftScreen={() => outOfFrame(character.name, index)}
         >
           <div
-            style={{ backgroundImage: `url('/img/avatar/${character.photo}')`}}
+            style={{ backgroundImage: `url('/img/avatar/${character.photo}')` }}
             className="card"
           >
             <h3>{character.name}</h3>
