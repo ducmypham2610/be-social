@@ -183,10 +183,7 @@ export default function Global() {
               What's on your mind?
             </Button>
           </div>
-
-          {posts?.map((p, i) => (
-            <Post key={p._id} data={p} />
-          ))}
+          {posts && posts.slice().reverse().map((p) => <Post key={p._id} data={p} />)}
         </div>
       </div>
     </Layout>

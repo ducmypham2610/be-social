@@ -1,0 +1,355 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.layout{
+    display: flex;
+    flex-direction: column;
+}
+.layout-down{
+    display: flex;
+    flex-direction: row;
+    top: 7vh !important;
+    position: relative;
+}
+
+
+/* ============================================================================== */
+/* ====================                 HEADER             ====================== */
+/* ============================================================================== */
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    z-index: 2;
+    border-bottom: 3px solid #F3F3F3;
+    padding: 30px;
+    width: 100%;
+    height: 7vh;
+    position: fixed;
+    height: 7vh;
+}
+
+.header img{
+    width: 180px;
+    padding: 1%;
+}
+
+@media screen and (max-width: 768px){
+    .header img{
+        width: 30%;
+    }
+
+    .header{
+        width: 100% !important;
+        height: 7vh;
+        position: fixed;
+        top: 0;
+    }
+
+}
+
+
+/* ============================================================================== */
+/* ====================             SIDE BAR             ======================== */
+/* ============================================================================== */
+
+/* System */
+.css-mhc70k-MuiGrid-root>.MuiGrid-item{
+    padding: 0 !important;
+}
+
+.css-1dmj16y-MuiButtonBase-root-MuiFab-root:hover{
+    background-color: #74000f !important;
+}
+
+.css-1dmj16y-MuiButtonBase-root-MuiFab-root{
+    width: 100%;
+}
+/* System */
+
+.sidebar{
+    border-right: 2px solid #F3F3F3;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    width: 320px;
+    background-color: #F3F3F3;
+}
+
+.sidebar .Profile{
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    background: linear-gradient(to left, #f85757, #e03030);
+    color: #ffffff;
+    padding: 25px;
+}
+
+.sidebar i{
+    font-size: 25px;
+    color: #F3F3F3;
+}
+
+.sidebar .Nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sidebar .Nav button{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.479);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sidebar .Nav button:hover i{
+    color: #9b9b9b;
+}
+
+.sidebar .ProfileImage{
+    width: 30%;
+}
+
+.sidebar .Menu .match{
+    animation: reverse 1s;
+}
+
+.sidebar .ShowMatches{
+    margin-top: 5%;
+    border: 3px solid #ff6a00;
+    border-radius: 5%;
+    width: 15vh;
+    height: 20vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ShowMatches button{
+    font-size: 1.5em;
+    font-weight: 550;
+    color: white !important;
+    position: absolute;
+    background-color: #e940578f;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.sidebar .CountMatches{
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 !important;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0.2;
+    filter:blur(5px);
+}
+
+.sidebar .ShowMatches:hover {
+    transform: scale(1.08);
+    transition: 0.5s ease-in-out;
+}
+
+.sidebar .ListChat{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.sidebar .KeyChat{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background: #E94057; */
+    padding: 3%;
+    border-radius: 10px;
+    /* margin-bottom: 1%; */
+    margin-top: 3%;
+    cursor: pointer;
+}
+
+.sidebar .KeyChat:hover{
+    background-color: #dfdfdf;
+}
+
+.sidebar .KeyChat .Selected {
+    background-color: #E94057;
+}
+
+.sidebar .KeyChatImage{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.sidebar .KeyChatName{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5%;
+}
+
+.sidebar .KeyChatName h3{
+    font-size: 1em;
+    font-weight: 500;
+    /* color: #ffffff !important; */
+    padding: 0 !important;
+}
+
+.sidebar .KeyChatTime p{
+    /* color: white !important; */
+}
+
+.sidebar .KeyChatName p{
+    font-size: 0.8em;
+    /* color: #ffffff !important; */
+    padding: 0 !important;
+    width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left !important;
+}
+
+.sidebar .Menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.sidebar .Menu img{
+    padding: 30px;
+    width: 100%;
+    display: block;
+    margin-top: 10%;
+}
+
+.sidebar .Menu h3{
+    text-align: center;
+    padding: 5px;
+    color: #838383;
+}
+
+.sidebar .Menu p{
+    text-align: center;
+    font-size: 13px;
+    padding: 5px;
+    color: #ADAFBB;
+}
+
+.sidebar .Direct{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    justify-content: space-around;
+    /* margin-top: 60%; */
+}
+
+.css-118zhtq-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab{
+    background-color: #E94057 !important;
+}
+
+.css-118zhtq-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab:hover{
+    background-color: #74000f !important;
+}
+  
+
+@media screen and (max-width: 768px){
+    .sidebar{
+        display: none;
+        position: static;
+    }
+}
+
+
+
+/* ============================================================================== */
+/* ====================                 FOOTE            ======================== */
+/* ============================================================================== */
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
+    display: none;
+}
+
+.footer button{
+    width: 100%;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.footer button:hover , .footer button:focus, .footer button:active{
+    /* background-color: #e9405713; */
+    color: #E94057;
+}
+
+.footer button:hover i, .footer button:focus i, .footer button:active i{
+    color: #E94057;
+}
+
+.footer button:hover Avatar, .footer button:focus Avatar, .footer button:active Avatar{
+    background-color: #E94057;
+    color: #E94057;
+
+}
+
+.footer i{
+    font-size: 30px;
+    color: #ADAFBB;
+    padding: 5px;
+}
+
+@media screen and (max-width: 768px){
+    .footer{
+        display: flex;
+        bottom: 0;
+        position: fixed;
+        height: 8vh;
+        /* margin-left: 16px; */
+        background-color: #ffffff;
+        width: 100%;
+        z-index: 9999 !important;
+
+    }
+}
+    

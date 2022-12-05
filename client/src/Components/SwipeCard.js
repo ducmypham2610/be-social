@@ -41,7 +41,6 @@ function SwipeCard() {
   };
 
   const canGoBack = currentIndex < genderedUsers.length - 1;
-
   const canSwipe = currentIndex >= 0;
 
   // set last direction and decrease current index
@@ -49,22 +48,22 @@ function SwipeCard() {
     setLastDirection(direction);
     updateCurrentIndex(index - 1);
     if (direction === "right") {
-      updateMatches(userId,swipedUserId);
+      updateMatches(userId,swipedUserId).then((res) => console.log(res.data)).catch((err) => console.log(err));
       // console.log(swipedUserId);
     }
   };
 
   const outOfFrame = (name, idx) => {
-    // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
-    // TODO: when quickly swipe and restore multiple times the same card,
-    // it happens multiple outOfFrame events are queued and the card disappear
-    // during latest swipes. Only the last outOfFrame event should be considered valid
   };
 
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < genderedUsers.length) {
       await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
+      // Set location card center bottom of screen and when swipe card rotate 180deg around x-axis
+      document.getElementById("love").style.transform = "translate(0, 0) rotate(180deg)";
+      document.getElementById("hate").style.transform = "translate(0, 0) rotate(180deg)";
+      document.getElementById("back").style.transform = "translate(0, 0) rotate(180deg)";
     }
   };
 
@@ -88,14 +87,17 @@ function SwipeCard() {
           ref={childRefs[index]}
           className="swipe"
           key={character.name}
-          onSwipe={(dir) => swiped(dir, character.name, index)}
+          onSwipe={(dir) => swiped(dir, character._id, index)}
           onCardLeftScreen={() => outOfFrame(character.name, index)}
         >
           <div
             style={{ backgroundImage: `url('/img/avatar/${character.photo}')`}}
             className="card"
           >
-            <h3>{character.name}</h3>
+            <div className="cardInfo">
+              <h3>{character.name}, 21</h3>
+              <p>Chỗ này em nghĩ là nên để phần cho người dùng ghi about me và giới hạn text. Nếu quá 2 dòng thì ...</p>
+            </div>
           </div>
         </TinderCard>
       ))}

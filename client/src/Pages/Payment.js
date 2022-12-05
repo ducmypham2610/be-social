@@ -1,6 +1,5 @@
 import Layout from "../Components/Layout";
 import "../Assets/CSS/Pages/Payment.css"
-import Button from '@mui/material/Button';
 import Bank from "../Assets/Images/Bank.jpg";
 
 export default function Payment() {
@@ -12,7 +11,7 @@ export default function Payment() {
                     <p>Payment by bank transfer</p>
                 </div>
                 <div className="Group">
-                    <div className="Pay">
+                    {/* <div className="Pay">
                         <div className="Info">
                             <h3>Information</h3>
                             <table>
@@ -49,10 +48,14 @@ export default function Payment() {
                             <p><b>3. </b>Before transferring, please double check the information and take a screenshot of the transfer.</p>
                             <p><b>4. </b>After transferring, please send the screenshot to the email: <span style={{color: '#E94057', fontWeight:'bold'}}>yourmail@fpt.edu.vn</span></p>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="Bank">
                         <h3>Invoice</h3>
                         <table>
+                            <tr>
+                                <th>Email</th>
+                                <td>yourmail@fpt.edu.vn</td>
+                            </tr>
                             <tr>
                                 <th>Gold</th>
                                 <td>120,000 VND</td>
@@ -74,9 +77,6 @@ export default function Payment() {
                         {/* Tạo khung command copy dòng h3 trên */}
                         <div className="cTrans">
                             <h3>BeDating yourmail@fpt.edu.vn</h3>
-                            <Button size="small" variant="contained" onClick={() => {
-                                navigator.clipboard.writeText("BeDating yourmail@fpt.edu.vn");
-                            }}>Copy</Button>
                         </div>
                         
                         {/* <div className="cTrans">

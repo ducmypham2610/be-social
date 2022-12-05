@@ -1,0 +1,42 @@
+.Policy{
+    /* color: #e94057; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Policy h1{
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(to left, #ee0979, #ff6a00);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.Policy h2{
+    font-size: 1.5rem;
+    font-weight: 650;
+    background: linear-gradient(to left, #ee0979, #ff6a00);
+    background-clip: text;
+    color: transparent;
+}
+
+.Policy h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: linear-gradient(to left, #ee0979, #ff6a00);
+    background-clip: text;
+    color: transparent;
+}
+
+.Policy .Group{
+    width: 40%;
+}
+
+.Policy .Group ul li{
+    text-align: justify;
+    /* font-size: 1rem; */
+    padding: 1%;
+}

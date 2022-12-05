@@ -17,6 +17,9 @@ import About from "./Pages/Aboutme";
 import Premium from "./Pages/Premium";
 import Payment from "./Pages/Payment";
 import Matches from "./Pages/Matches";
+import Support from './Pages/Support';
+import Policy from './Pages/Policy';
+import Chill from './Pages/Chill';
 import AuthContextProvider from "./context/AuthContext";
 
 function App() {
@@ -37,6 +40,9 @@ function App() {
             <Route path="/premium" element={<Premium />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/matches" element={<Matches />} />
+            <Route path="/support" element= {<Support/>} />
+            <Route path="/policy" element= {<Policy/>} />
+            <Route path="/chill" element= {<Chill/>} />
           </Routes>
           {/* </Layout> */}
         </Router>
