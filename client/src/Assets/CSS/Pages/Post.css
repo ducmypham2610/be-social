@@ -1,0 +1,180 @@
+.Global{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.ToolPost{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
+    border: 1px solid #f80759;
+    border-radius: 10px;
+    height: 100%;
+    padding: 2%;
+    margin-bottom: 2%;
+}
+
+.ToolPost Button{
+    width: 70%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(to left, #bc4e9c, #f80759);
+    color: #FFF;
+    cursor: pointer;
+}
+
+.ToolPost Button:hover{
+    background: linear-gradient(to right, #bc4e9c, #f80759);
+    border: #f80759;
+    width: 80%;
+    transition: 1s ease; 
+}
+
+.ToolPost .Dialog{
+    width: 80%;
+}
+
+.ToolPost TextField{
+    padding: 10px !important;
+}
+
+.NewFeed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    width: 30%;
+    border-radius: 10px;
+    height: 100%;
+    margin: 2%;
+    overflow-y: auto;
+    bottom: 0;
+}
+
+.Post{
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-top: 5%;    
+}
+
+.Post .PostHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin: 10px;
+}
+
+.Post .PostHeader .PostHeaderInfo{
+    width: 80%;
+    height: 100%;
+    margin-left: 5%;
+}
+
+.Post .PostHeader .PostHeaderInfo h3{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.Post .PostHeader .PostHeaderInfo p{
+    font-size: 12px;
+    color: #838383;
+}
+
+.PostBody{
+    font-size: 15px;
+    /* text-align: justify; */
+    padding: 10px;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.postImages{
+    width: 100%;
+    object-fit: contain;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.PostFooter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin: 10px;
+    padding: 10px;
+    border-bottom:  1px solid #E3E3E3;
+}
+
+.Post .Comment{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    margin: 10px;
+}
+
+.Post .Comment .CommentHeaderInfo h3{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.Post .Comment .CommentHeaderInfo p{
+    font-size: 11px;
+    color: #838383;
+}
+
+
+.Post .Comment .CommentBody{
+    font-size: 12px;
+    margin: 1%;
+}
+
+.Post .Comment .CommentBody .CommentText{
+    /* width: 100%; */
+    background-color: #E94057;
+    color: #FFF;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+@media screen and (max-width: 1000px){
+    .NewFeed{
+        width: 90%;
+        margin-bottom: 25%;
+    }
+
+    .Post{
+        width: 90%;
+    }
+
+    .ToolPost{
+        width: 90%;
+    }
+    
+    .PostFooter b{
+        font-size: 2.5vw;
+
+    }
+
+    .PostFooter input{
+        width: 45vw !important;
+    }
+}
+    

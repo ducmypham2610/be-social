@@ -1,0 +1,104 @@
+.Matches{
+    padding: 3%;
+    border-radius: 5px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.Matches .MatchHeader{
+    margin-bottom: 2%;
+}
+
+.Matches .MatchBody{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: auto;
+    grid-gap: 30px;
+}
+
+.Matches .Card{
+    background-image: url('../../Images/Cloud/Jisoo.jpg');
+    background-position: center;
+    background-size: cover;
+    /* padding: 1%; */
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 10vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 2%;
+    /* border: 1px solid black; */
+}
+
+.Matches .Card .CardHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #FFF;
+}
+
+.Matches .Card .CardHeader p{
+    font-size: 1vw;
+    font-weight: 500;
+    padding: 0.5vw;
+}
+
+.Matches .Card .CardHeader .CardHeaderIcons{
+    background-color: rgba(0, 0, 0, 0.8);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.Matches .Card .CardHeader .CardHeaderIcons button{
+    background-color: transparent;
+    border: none;
+    color: #FFF;
+    margin: 1%;
+}
+
+.Matches .Card .CardHeader .CardHeaderIcons button:hover{
+    color: #E94057;
+}
+
+.Matches .Card .Blur{
+    background: linear-gradient(to right, #f857a6, #ff5858);
+    opacity: 0.99;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Matches .Card .Blur .CardHeader{
+    display: none;
+}
+
+
+@media screen and (max-width: 768px){
+    .Matches .MatchBody{
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 10vh;
+    }
+
+    .Matches .Card{
+        width: 100%;
+        height: 30vh;
+    }
+
+    .Matches .MatchHeader{
+        margin-bottom: 5%;
+    }
+}
+    

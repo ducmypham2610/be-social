@@ -1,0 +1,95 @@
+h1{
+    color: #000;
+}
+
+.Premium{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Premium-Content{
+    padding: 3%;
+    text-align: center;
+}
+
+.Be{
+    font-size: 4rem;
+    font-weight: 600;
+    background: linear-gradient(to left, #ee0979, #ff6a00);
+    background-clip: text;
+    color: transparent;
+}
+
+.Choice{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Choice-Content{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    /* background-color: #F3F3F3; */
+    width: 350px;
+    height: 480px;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.Button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    margin: 5%;
+    border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.Button button{
+    background: linear-gradient(to right, #ee0979, #ff6a00);
+    width: 50%;
+    border-radius: 15px;
+}
+
+.Button button:hover{
+    background-color: #8a2835 ;
+}
+
+ul li{
+    list-style: none;
+    line-height: 2rem;
+    font-size: 0.9rem;
+}
+
+.Gold{
+    background:linear-gradient(to left, #fceabb, #f8b500);
+    background-clip: text;
+    color: transparent;
+}
+
+.Platinum{
+    background: linear-gradient(to right, #43c6ac, #191654);
+    background-clip: text;
+    color: transparent;
+}
+
+.Titan{
+    background: linear-gradient(to bottom, #536976, #292e49);
+    background-clip: text;
+    color: transparent;
+}
+
+
+@media screen and (max-width: 768px){
+    .Choice{
+        flex-direction: column;
+        
+    }
+}
+    

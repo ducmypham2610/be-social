@@ -1,0 +1,22 @@
+.About{
+    /* color: #e94057; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.About h1{
+    color: #e94057;
+    text-align: center;
+    padding: 5%;
+}
+
+.Group{
+    width: 40%;
+}
+
+.Group p{
+    text-align: justify;
+    font-size: 1rem;
+    padding: 1%;
+}
