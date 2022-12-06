@@ -1,12 +1,27 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useState, useMemo, useRef, useContext } from "react";
+import * as React from 'react';
 import '../Assets/CSS/Pages/Matches.css';
 import Layout from "../Components/Layout";
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Love from '@mui/icons-material/FavoriteRounded';
 import Deny from '@mui/icons-material/ClearRounded';
 
+
+
 export default function Matches() {
+    const navigate = useNavigate();
+    const contextDataAuth = useContext(AuthContext);
+    const { isAuthen } = contextDataAuth.authContext;
+
+    useEffect(() => {
+        if (isAuthen === null) {
+        navigate("/login");
+        }
+    }, []);
     return (
         <Layout>
             <div className="Matches">

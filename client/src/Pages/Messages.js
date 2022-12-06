@@ -1,5 +1,9 @@
 import Layout from "../Components/Layout";
 import "../Assets/CSS/Pages/Messages.css"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useState, useMemo, useRef, useContext } from "react";
 import * as React from 'react';
 import SendIcon from '@mui/icons-material/Telegram';
 import Facetime from '@mui/icons-material/Videocam';
@@ -18,6 +22,15 @@ import Jisoo2 from "../Assets/Images/Cloud/Jisoo.jpg";
 
   
 export default function Messages() {
+    const navigate = useNavigate();
+    const contextDataAuth = useContext(AuthContext);
+    const { isAuthen } = contextDataAuth.authContext;
+
+    useEffect(() => {
+        if (isAuthen === null) {
+        navigate("/login");
+        }
+    }, []);
     return (
         <Layout>
             <div className="Messages">

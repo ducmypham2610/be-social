@@ -20,6 +20,7 @@ import Matches from "./Pages/Matches";
 import Support from './Pages/Support';
 import Policy from './Pages/Policy';
 import Chill from './Pages/Chill';
+import Intro from './Pages/Intro';
 import AuthContextProvider from "./context/AuthContext";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/support" element= {<Support/>} />
             <Route path="/policy" element= {<Policy/>} />
             <Route path="/chill" element= {<Chill/>} />
+            <Route path="/intro" element= {<Intro/>} />
           </Routes>
           {/* </Layout> */}
         </Router>

@@ -129,7 +129,7 @@ a{
 
 .sidebar .ShowMatches{
     margin-top: 5%;
-    border: 3px solid #ff6a00;
+    border: 3px solid #E94057;
     border-radius: 5%;
     width: 15vh;
     height: 20vh;
@@ -141,14 +141,14 @@ a{
 }
 
 .ShowMatches button{
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 550;
     color: white !important;
     position: absolute;
     background-color: #e940578f;
-    border-radius: 50%;
-    padding: 15px;
-    cursor: pointer;
+    border-radius: 15%;
+    padding: 10px;
+    /* cursor: pointer; */
 }
 
 .sidebar .CountMatches{
@@ -162,6 +162,7 @@ a{
     border-radius: 20px;
     opacity: 0.2;
     filter:blur(5px);
+    cursor: pointer;
 }
 
 .sidebar .ShowMatches:hover {
@@ -219,8 +220,9 @@ a{
 }
 
 .sidebar .KeyChatName h3{
-    font-size: 1em;
-    font-weight: 500;
+    font-size: 1.1em;
+    /* color: #000 !important; */
+    font-weight: 550;
     /* color: #ffffff !important; */
     padding: 0 !important;
 }

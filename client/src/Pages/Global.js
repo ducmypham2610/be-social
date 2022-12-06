@@ -1,6 +1,9 @@
 import Layout from "../Components/Layout";
 import "../Assets/CSS/Pages/Post.css";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useMemo, useRef, useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -70,6 +73,16 @@ export default function Global() {
   const onFileChange = (e) => {
     setFileList(e.target.files[0]);
   };
+
+  const navigate = useNavigate();
+  const contextDataAuth = useContext(AuthContext);
+  const { isAuthen } = contextDataAuth.authContext;
+
+  useEffect(() => {
+      if (isAuthen === null) {
+      navigate("/login");
+      }
+  }, []);
 
   return (
     <Layout>

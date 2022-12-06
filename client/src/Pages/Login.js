@@ -28,9 +28,10 @@ export default function Login() {
                 navigate('/profile');
             }
             // if yes redirect to dashboard page
-            if(response.status === 200) {
+            if (response.status === 200) {
                 navigate('/home');
             }
+
         }catch(err) {
             console.log(err);
         }

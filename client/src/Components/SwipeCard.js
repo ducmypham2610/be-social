@@ -96,7 +96,12 @@ function SwipeCard() {
           >
             <div className="cardInfo">
               <h3>{character.name}, 21</h3>
-              <p>Chỗ này em nghĩ là nên để phần cho người dùng ghi about me và giới hạn text. Nếu quá 2 dòng thì ...</p>
+                {/* {character.about && character.address && (<h4>{character.address}</h4> && <p>{character.about}</p>)} */}
+                {character.about && !character.address && (<p>{character.about}</p>)}
+                {!character.about && character.address && (<h4>{character.address}</h4>)}
+                {!character.about && !character.address && (<p>FPT Education</p>)}
+                {character.address && character.about && (<h4>{character.address}</h4>)}
+                {character.about && character.address && (<p>{character.about}</p>)}
             </div>
           </div>
         </TinderCard>
