@@ -22,6 +22,8 @@ import Policy from './Pages/Policy';
 import Chill from './Pages/Chill';
 import Intro from './Pages/Intro';
 import AuthContextProvider from "./context/AuthContext";
+import Profile from "./Pages/Profile";
+import Crush from "./Pages/Crush";
 
 function App() {
   return (
@@ -44,7 +46,9 @@ function App() {
             <Route path="/support" element= {<Support/>} />
             <Route path="/policy" element= {<Policy/>} />
             <Route path="/chill" element= {<Chill/>} />
-            <Route path="/intro" element= {<Intro/>} />
+            <Route path="/started" element= {<Intro/>} />
+            <Route path="/profile" element= {<Profile/>} />
+            <Route path="/crush" element= {<Crush/>} />
           </Routes>
           {/* </Layout> */}
         </Router>

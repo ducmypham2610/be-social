@@ -19,7 +19,6 @@ export default function Login() {
             const user = auth.currentUser;
             const name = user.displayName;
             const email = user.email;
-            // checking if user with email is existed in database
             const response = await axios.post(API_LOGIN,{email,name});
             localStorage.setItem("AuthToken",response.data.token);
             localStorage.setItem("UserId",response.data.user._id);

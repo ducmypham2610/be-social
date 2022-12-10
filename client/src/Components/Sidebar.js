@@ -89,7 +89,7 @@ function Sidebar() {
             <Grid item md={12}>
                 <div className="Profile">
                     <div className="ProfileImage">
-                        <a href="/profile"> <Avatar sx={{ width: 55, height: 55 }} src="/static/images/avatar/1.jpg" alt='Tuan'/> </a>
+                        <a href="/profile"> <Avatar sx={{ width: 55, height: 55 }} src={user?.photo} alt={user?.name}/> </a>
                     </div>
                     <div className="ProfileName">
                         <h3>{user?.name}</h3>

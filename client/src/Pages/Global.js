@@ -3,7 +3,7 @@ import "../Assets/CSS/Pages/Post.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { useMemo, useRef, useContext } from "react";
+import {  useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -12,6 +12,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Avatar } from "@mui/material";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
+import Hashtag from '@mui/icons-material/Tag';
 
 // import Comment from '@mui/icons-material/ShortText';
 
@@ -57,7 +58,7 @@ export default function Global() {
 
   const handleSubmitPost = () => {
     let formData = new FormData();
-    if (fileList.length !== 0) {
+    if (fileList?.length !== 0) {
       formData.append("image", fileList);
       console.log(fileList);
     }

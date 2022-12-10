@@ -60,10 +60,9 @@ function SwipeCard() {
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < genderedUsers.length) {
       await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
-      // Set location card center bottom of screen and when swipe card rotate 180deg around x-axis
-      document.getElementById("love").style.transform = "translate(0, 0) rotate(180deg)";
-      document.getElementById("hate").style.transform = "translate(0, 0) rotate(180deg)";
-      document.getElementById("back").style.transform = "translate(0, 0) rotate(180deg)";
+    } 
+    else {
+      console.log("no more cards");
     }
   };
 
@@ -82,6 +81,9 @@ function SwipeCard() {
   );
   return (
     <>
+
+      
+
       {filteredGenderedUsers?.map((character, index) => (
         <TinderCard
           ref={childRefs[index]}

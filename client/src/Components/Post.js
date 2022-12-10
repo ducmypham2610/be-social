@@ -26,7 +26,7 @@ function Post({ data }) {
   return (
     <div className="Post">
       <div className="PostHeader">
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <Avatar alt={data.user.photo} src={data.user.name} />
         <div className="PostHeaderInfo">
           <h3>{data.user.name}</h3>
           <p>{format(data.created_at)}</p>
@@ -61,13 +61,13 @@ function Post({ data }) {
         <input
           style={{
             outline: "none",
-            width: "17rem",
+            width: "20rem",
             padding: "2%",
-            fontSize: "1rem",
+            fontSize: "0.85rem",
             backgroundColor: "#FFF",
-            borderRadius: "10px",
+            borderRadius: "15px",
             border: "1px solid #dedede",
-            marginLeft: "5%",
+            marginLeft: "15%",
           }}
           type="text"
           id="comment-input"
@@ -81,9 +81,9 @@ function Post({ data }) {
         <div className="Comment">
           <div className="CommentHeader">
             <Avatar
-              alt="Remy Sharp"
-              src="/static/images/avatar/1.jpg"
+              src={c.user.photo}
               sx={{ width: 35, height: 35, margin: 1 }}
+              alt={c.user.name}
             />
           </div>
           <div className="CommentBody">
