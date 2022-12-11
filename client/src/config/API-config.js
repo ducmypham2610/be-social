@@ -20,3 +20,7 @@ export const API_GET_CONVERSATION = API_BASE_URL + "conversations/" // :userID
 export const API_GET_CONVERSATION_OF_TWO_USERS = API_BASE_URL + "conversations/" //:fristUserId/:secondUserId
 
 export const API_ADD_COMMENT = API_BASE_URL + "comments"
+
+export const API_GET_ALL_TYPES = API_BASE_URL + "types";
+
+export const API_CREATE_ORDER = API_BASE_URL + "orders"

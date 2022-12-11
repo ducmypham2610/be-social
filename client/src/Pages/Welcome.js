@@ -1,4 +1,5 @@
 import '../Assets/CSS/Welcome.css';
+<<<<<<< HEAD
 import '../Assets/CSS/Welcome.css';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -23,6 +24,20 @@ export default function Welcome() {
         />
         
       );
+=======
+import React, {useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
+
+export default function Welcome() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setTimeout(() => {
+            navigate('/home')
+        },1000)
+    },[])
+    
+>>>>>>> 879bc976444799d2fe6938ee1ce6367e90c82683
     return (
         <>
         <div className="Welcome">

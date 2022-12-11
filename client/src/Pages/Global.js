@@ -56,7 +56,8 @@ export default function Global() {
     setOpen(false);
   };
 
-  const handleSubmitPost = () => {
+  const handleSubmitPost = (e) => {
+    e.preventDefault();
     let formData = new FormData();
     if (fileList?.length !== 0) {
       formData.append("image", fileList);
@@ -192,12 +193,30 @@ export default function Global() {
         {/* NewFeed */}
         <div className="NewFeed">
           <div className="ToolPost">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            {user?.photo ? (
+              <Avatar src={require(`../../public/img/avatar/${user.photo}`)} />
+            ) : (
+              <Avatar
+                sx={{ width: 55, height: 55 }}
+                src="/static/images/avatar/1.jpg"
+                alt={user?.name}
+              />
+            )}
             <Button variant="outlined" onClick={handleClickOpen}>
               What's on your mind?
             </Button>
           </div>
+<<<<<<< HEAD
           {posts && posts.slice().reverse().map((p) => <Post key={p._id} data={p} />)}
+=======
+
+          {posts
+            ?.slice()
+            .reverse()
+            .map((p, i) => (
+              <Post key={p._id} data={p} />
+            ))}
+>>>>>>> 879bc976444799d2fe6938ee1ce6367e90c82683
         </div>
       </div>
     </Layout>

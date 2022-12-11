@@ -17,7 +17,6 @@
 }
 
 .Matches .Card{
-    background-image: url('../../Images/Cloud/Jisoo.jpg');
     background-position: center;
     background-size: cover;
     /* padding: 1%; */
@@ -31,6 +30,10 @@
     justify-content: flex-end;
     margin-right: 2%;
     /* border: 1px solid black; */
+}
+
+.blur {
+    opacity: 0.1;
 }
 
 .Matches .Card .CardHeader{
