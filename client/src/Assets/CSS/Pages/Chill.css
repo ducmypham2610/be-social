@@ -1,0 +1,72 @@
+.Chill{
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ChillHeader h3{
+    font-size: 2.5em;
+    font-weight: 600;
+    background: linear-gradient(to left, #ee0979, #ff6a00);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.ChillHeader p{
+    text-align: center;
+    font-size: 1em;
+    color: #000;
+    padding: 2%;
+    width: 100%;
+}
+
+.Chill .ChillBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .Chill{
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ChillHeader h3{
+        font-size: 2.5em;
+        font-weight: 600;
+        background: linear-gradient(to left, #ee0979, #ff6a00);
+        background-clip: text;
+        color: transparent;
+        text-align: center;
+    }
+
+    .ChillHeader p{
+        text-align: justify;
+        font-size: 0.9em;
+        color: #000;
+        padding: 2%;
+        width: 100%;
+    }
+
+    .Chill .ChillBody{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Chill iframe{
+        margin-top: 5%;
+        width: 400px;
+        height: 350px;
+    }
+}
+    

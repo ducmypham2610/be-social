@@ -8,6 +8,7 @@ const messageRoutes = require('./routes/messageRoutes');
 const conversationRoutes = require('./routes/conversationRoutes');
 const postRoutes = require('./routes/postRoutes');
 const commentRoutes = require('./routes/commentRoutes');
+const typeRoutes = require('./routes/typeRoutes');
 
 const app = express();
 app.use(cors());
@@ -26,5 +27,6 @@ app.use("/conversations",conversationRoutes);
 app.use("/messages",messageRoutes);
 app.use("/posts",postRoutes);
 app.use("/comments",commentRoutes);
+app.use("/types",typeRoutes);
 
 module.exports = app;

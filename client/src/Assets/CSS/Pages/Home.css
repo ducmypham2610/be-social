@@ -1,28 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap');
 
-.Home{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 90vh;
-    /* position: fixed; */
-    z-index: 1;
-    /* background: linear-gradient(to left, #f8577a, #ff5858); */
-    overflow: hidden;
-    overflow-x: hidden;
-  }
-
-.icons {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    align-items: center
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: 90vh;
+  position: fixed;
+  z-index: 1;
 }
 
-.css-1qiciin-MuiButtonBase-root-MuiFab-root:hover{
-    background-color: #942837 !important;
+.icons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center
+}
+
+.css-1qiciin-MuiButtonBase-root-MuiFab-root:hover {
+  background-color: #942837 !important;
 }
 
 
@@ -51,14 +48,12 @@
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
-
 .card .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
 }
-
 .card img{
     width: 350px;
     border-top-left-radius: 10px;
@@ -90,7 +85,7 @@
 
 h1 {
   color: #fff;
-  text-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+  text-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.30);
 }
 
 h2 {
@@ -111,12 +106,12 @@ h2 {
   position: relative;
   background-color: #fff;
   width: 80vw;
-  max-width: 260px;
-  height: 300px;
-  box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+  max-width: 390px;
+  height: 700px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
   border-radius: 20px;
   background-size: cover;
-  background-position: center;
+  background-position: 50% 50%;
 }
 
 .cardContent {
@@ -124,12 +119,43 @@ h2 {
   height: 100%;
 }
 
-.card h3 {
+.card .cardInfo {
   position: absolute;
   bottom: 0;
-  margin: 10px;
+  /* margin: 10px; */
   color: #fff;
+  background: linear-gradient(to top, #000000, #000000e5, #0e0f0f, #11121381);
+  width: 100%;
+  padding: 5%;
+  padding-bottom: 20%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 230px;
 }
+
+.card .cardInfo h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.card .cardInfo h4 {
+  font-size: 1rem;
+  font-weight: 550;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.card .cardInfo p {
+  font-size: 1rem;
+  /* Không quá 2 dòng */
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 
 .infoText {
   width: 100%;
@@ -141,47 +167,35 @@ h2 {
 }
 
 @keyframes popup {
-  0%   { transform: scale(1,1) }
-  10%  { transform: scale(1.1,1.1) }
-  30%  { transform: scale(.9,.9) }
-  50%  { transform: scale(1,1) }
-  57%  { transform: scale(1,1) }
-  64%  { transform: scale(1,1) }
-  100% { transform: scale(1,1) }
+  0% {
+    transform: scale(1, 1)
+  }
+
+  10% {
+    transform: scale(1.1, 1.1)
+  }
+
+  30% {
+    transform: scale(.9, .9)
+  }
+
+  50% {
+    transform: scale(1, 1)
+  }
+
+  57% {
+    transform: scale(1, 1)
+  }
+
+  64% {
+    transform: scale(1, 1)
+  }
+
+  100% {
+    transform: scale(1, 1)
+  }
 }
 
-/* Res */
-@media screen and (max-width: 768px){
-    .card{
-      width: 75%;
-      height: 70%;
-      background: linear-gradient(to left, #f8577a, #ff5858);
-      color: #fff;
-      margin-left: 15%;
-    }
-    .card img{
-        width: 100%;
-        height: 700%;
-    }
-    .Home{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        /* background: linear-gradient(to left, #f8577a, #ff5858); */
-    }
-
-    .icons {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        align-items: center;
-        margin-left: 5%;
-    }
-
+.icons {
+  margin-top: 37%;
 }
- .icons{
-    margin-top: 300px;
- }

@@ -17,6 +17,9 @@ import About from "./Pages/Aboutme";
 import Premium from "./Pages/Premium";
 import Payment from "./Pages/Payment";
 import Matches from "./Pages/Matches";
+import Chill from "./Pages/Chill";
+import Profile from "./Pages/Profile";
+import Room from "./Pages/Room";
 import AuthContextProvider from "./context/AuthContext";
 
 function App() {
@@ -29,10 +32,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/aboutme" element={<About />} />
+            <Route path="/room/:id" element={<Room />} />
+            <Route path="/chill" element={<Chill />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/global" element={<Global />} />
-            <Route path="/messages" element={<Messages />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/messages/:friendId" element={<Messages />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
             <Route path="/payment" element={<Payment />} />

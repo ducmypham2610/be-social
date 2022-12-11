@@ -1,14 +1,10 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import TinderCard from "react-tinder-card";
-import {
-  getUser,
-  getGenderedUsers,
-  updateMatches,
-} from "../services/userService";
-import Nope from "@mui/icons-material/Clear";
-import Love from "@mui/icons-material/Favorite";
-import Back from "@mui/icons-material/SettingsBackupRestore";
-import { Fab } from "@mui/material";
+import { getUser, getGenderedUsers, updateMatches } from "../services/userService";
+import Nope from '@mui/icons-material/Clear';
+import Love from '@mui/icons-material/Favorite';
+import Back from '@mui/icons-material/SettingsBackupRestore';
+import { Fab } from '@mui/material';
 function SwipeCard() {
   const userId = localStorage.getItem("UserId");
   const [user, setUser] = useState(null);
@@ -45,7 +41,6 @@ function SwipeCard() {
   };
 
   const canGoBack = currentIndex < genderedUsers.length - 1;
-
   const canSwipe = currentIndex >= 0;
 
   // set last direction and decrease current index
@@ -53,24 +48,22 @@ function SwipeCard() {
     setLastDirection(direction);
     updateCurrentIndex(index - 1);
     if (direction === "right") {
-      updateMatches(userId, swipedUserId)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+      updateMatches(userId,swipedUserId).then((res) => console.log(res.data)).catch((err) => console.log(err));
       // console.log(swipedUserId);
     }
   };
 
   const outOfFrame = (name, idx) => {
-    // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
-    // TODO: when quickly swipe and restore multiple times the same card,
-    // it happens multiple outOfFrame events are queued and the card disappear
-    // during latest swipes. Only the last outOfFrame event should be considered valid
   };
 
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < genderedUsers.length) {
       await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
+      // Set location card center bottom of screen and when swipe card rotate 180deg around x-axis
+      document.getElementById("love").style.transform = "translate(0, 0) rotate(180deg)";
+      document.getElementById("hate").style.transform = "translate(0, 0) rotate(180deg)";
+      document.getElementById("back").style.transform = "translate(0, 0) rotate(180deg)";
     }
   };
 
@@ -87,6 +80,12 @@ function SwipeCard() {
   const filteredGenderedUsers = genderedUsers?.filter(
     (genderedUser) => !matchedUserIds.includes(genderedUser._id)
   );
+  const calculateAge = (dob) => {
+    const yearOfBirth = new Date(dob).getFullYear();
+    const now = new Date().getFullYear();
+    const age = now - yearOfBirth
+    return age;
+  }
   return (
     <>
       {filteredGenderedUsers?.map((character, index) => (
@@ -98,10 +97,18 @@ function SwipeCard() {
           onCardLeftScreen={() => outOfFrame(character.name, index)}
         >
           <div
-            style={{ backgroundImage: `url('/img/avatar/${character.photo}')` }}
+            style={{ backgroundImage: `url('/img/avatar/${character.photo}')`}}
             className="card"
           >
-            <h3>{character.name}</h3>
+            <div className="cardInfo">
+              <h3>{character.name}, {calculateAge(character.dob)}</h3>
+                {/* {character.about && character.address && (<h4>{character.address}</h4> && <p>{character.about}</p>)} */}
+                {character.about && !character.address && (<p>{character.about}</p>)}
+                {!character.about && character.address && (<h4>{character.address}</h4>)}
+                {!character.about && !character.address && (<p>FPT Education</p>)}
+                {character.address && character.about && (<h4>{character.address}</h4>)}
+                {character.about && character.address && (<p>{character.about}</p>)}
+            </div>
           </div>
         </TinderCard>
       ))}

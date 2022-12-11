@@ -4,6 +4,7 @@ import { format } from "timeago.js";
 import { Avatar } from "@mui/material";
 import Love from "@mui/icons-material/FavoriteBorder";
 import { Fab } from "@mui/material";
+import PostImage from "./PostImage";
 function Post({ data }) {
   const userId = localStorage.getItem("UserId");
   const postId = data._id;
@@ -26,7 +27,14 @@ function Post({ data }) {
   return (
     <div className="Post">
       <div className="PostHeader">
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        {data.user.photo ? (
+          <Avatar src={require(`../../public/img/avatar/${data.user.photo}`)} />
+        ) : (
+          <Avatar
+            src="/static/images/avatar/1.jpg"
+            alt={data.user.name}
+          />
+        )}
         <div className="PostHeaderInfo">
           <h3>{data.user.name}</h3>
           <p>{format(data.created_at)}</p>
@@ -35,10 +43,10 @@ function Post({ data }) {
       <div className="PostBody">
         <p>{data.content}</p>
         {data.image && (
+          // <PostImage imageSource={data.image } />
           <img
             className="postImages"
-            src={require(`../Assets/Images/Post/${data.image}`)}
-            alt="Post"
+            src={require(`../Assets/Images/Cloud/${data.image}`)}
           />
         )}
       </div>
@@ -78,13 +86,12 @@ function Post({ data }) {
       </div>
       {/* COMMENT */}
       {data.comments?.map((c) => (
-        <div className="Comment">
+        <div className="Comment" key={c._id}>
           <div className="CommentHeader">
-            <Avatar
-              alt="Remy Sharp"
-              src="/static/images/avatar/1.jpg"
-              sx={{ width: 35, height: 35, margin: 1 }}
-            />
+          {c.user.photo ? <Avatar src={require(`../../public/img/avatar/${c.user.photo}`)} /> : <Avatar
+                  src="/static/images/avatar/1.jpg"
+                  alt={c.user.name}
+                />}
           </div>
           <div className="CommentBody">
             <div className="CommentHeaderInfo">

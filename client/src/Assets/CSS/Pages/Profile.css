@@ -1,0 +1,234 @@
+
+.content-profile{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*edittttttttttttttttttttt*/
+
+  .content-form{
+    display: flex;
+    flex-direction: column;
+  }
+  .content-profile .content-1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .content-profile .content-1-2{
+    margin-left: 5%;
+  }
+  .content-1-2 .firstname{
+    width: 100%;
+  }
+  .content-profile .btnSave{
+    font-size: 20px;
+  }
+  .content-1-2 .firstname input:hover{
+    /* border: #e94057 !important; */
+  }
+  .content-profile .content-2{
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    align-items: flex-end
+  }
+  .content-profile .ant-radio-button-wrapper-checked{  
+    background: #e94057 !important;
+    border-color: #e94057 !important;
+  }
+  .content-profile .ant-radio-button-wrapper-checked h1{
+    color: #fff !important;
+  }
+  .content-profile .ant-radio-button-wrapper:hover{
+    color: #fff !important;
+    background: #e94057 !important;
+    border-color: #e94057 !important;
+  }
+  .content-profile .dob{
+    display: flex;
+    flex-direction: row;
+  }
+  .content-profile h1{
+    color:  #e94057 !important;
+    text-align: center;
+    font-size: 15px ;
+  
+  }
+  .content-profile h1:hover{
+    text-align: center;
+    font-size: 15px ;
+    color: #fff !important;
+  }
+  /* tile uploaded pictures */
+  .ant-upload {
+    width: 300px !important;
+    height: 300px !important;
+    margin-right: 8px;
+  }
+  .content-profile .img{
+    width: 300px;
+  }
+  .upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+    float: right;
+  }
+  .ant-upload-list-picture-card-container{
+    width: 300px !important;
+    height: 300px !important;
+  }
+  .anticon-picture{
+    font-size: 50px !important;
+    margin-top: 40% !important;
+  }
+  /* .ant-form-item-control-input{
+    width: 600px;
+  } */
+  .ant-radio-group{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .ant-radio-button-wrapper{
+    width: 100px ;
+    height: 45px !important;
+    padding: 5px !important;
+    /* margin-left: 10px; */
+    border-radius: 10px !important;
+    
+    border-inline-start: 1px solid #d9d9d9;
+  
+  }
+  .ant-radio-button-inner{
+    height: 0 !important;
+    width: 0 !important;
+    border-color: #e94057 !important;
+  }
+  .ant-picker-input{
+    width:160px !important;
+    height:30px !important; 
+    border-radius: 10px !important;
+  }
+  .ant-select{
+    width: 200px !important;
+    margin-left: 20px !important;
+  }
+  .ant-select-selector{
+  
+    border-radius: 10px !important;
+    height:40px !important; 
+  }
+  .ant-picker{
+    
+    border-radius: 10px !important;
+    
+  }
+  .radio-gender{
+    background-color: #e94057;
+    border-radius: 10px;
+  }
+  .radio-gender h1{ 
+    color: #fff;
+  }
+
+  .ant-upload-list-item-container{
+    width: 300px !important;
+    height: 300px !important;
+  }
+  .firstname .css-14lo706{
+    width: 15% !important;
+    color: #e94057 !important;
+  }
+  .numberphone .css-14lo706{
+    width: 21% !important;
+  }
+  .address .css-14lo706{
+    width: 13% !important;
+  }
+  .MuiInputBase-root{
+    border-radius: 15px !important;
+  }
+  
+  :where(.css-dev-only-do-not-override-1ij74fp).ant-radio-button-wrapper-checked:not(:where(.css-dev-only-do-not-override-1ij74fp).ant-radio-button-wrapper-disabled)::before {
+    background-color: #11961c;
+    width: 0 !important;
+    height: 0 !important;
+}
+:where(.css-dev-only-do-not-override-1ij74fp).ant-radio-button-wrapper:not(:first-child)::before {
+  
+  width: 0 !important;
+  height: 0 !important;
+}
+:where(.css-dev-only-do-not-override-1ij74fp).ant-radio-button-wrapper:first-child {
+  border-inline-start: 1px solid #d9d9d9;
+  /* border-start-start-radius: 6px; */
+  /* border-end-start-radius: 6px; */
+}
+
+/* 
+.content-2 :where(.css-dev-only-do-not-override-1ij74fp).ant-form-item {
+  width: 500px;
+} */
+
+.content-2 .aboutme .ant-form-item-control-input{
+  width:450px;
+}
+.content-2 .aboutme :where(.css-dev-only-do-not-override-1ij74fp).ant-row {
+  width:620px;
+  }
+.content-2 .ant-form-item-control-input .btnSave{
+  bottom: 0 !important;
+}
+
+
+.firstname textarea{
+  height: 20px !important;
+  border-color: #e94057;
+}
+
+.numberphone textarea{
+  height: 20px !important;
+}
+.address textarea{
+  height: 20px !important;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline:hover{
+  border-color: #61030d !important;
+}
+/* .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  border-color: #e94057 !important;
+} */
+
+:where(.css-dev-only-do-not-override-1ij74fp).ant-picker-focused {
+  border-color: #e94057;
+  box-shadow: 0 0 0 2px rgb(#e94057 / 10%);
+  border-inline-end-width: 1px;
+  outline: 0;
+}
+.ant-select-focused:where(.css-dev-only-do-not-override-1ij74fp).ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
+  border-color: #e94057;
+  box-shadow: 0 0 0 2px rgb(#e94057 / 10%);
+  border-inline-end-width: undefinedpx!important;
+  outline: 0;
+}
+:where(.css-dev-only-do-not-override-1ij74fp).ant-picker:hover{
+  border-color: #e94057 !important;
+}
+.ant-select-focused:where(.css-dev-only-do-not-override-1ij74fp).ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
+  border-color: #e94057;
+  box-shadow: 0 0 0 2px rgb(#e94057 / 10%);
+  border-inline-end-width: undefinedpx!important;
+  outline: 0;
+}
+.ant-select-selector:hover{
+
+  border-color: #e94057 !important;
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root :hover{
+  border-color: #e94057 !important;
+
+}
