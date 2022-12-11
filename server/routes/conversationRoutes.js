@@ -4,7 +4,6 @@ const router = express.Router();
 
 // routes
 router.post("/",conversationController.startConversation);
-// router.get("/:id",conversationController.getConversationById);
 router.get("/:userId",conversationController.getConversation);
 router.get("/find/:firstUserId/:secondUserId",conversationController.getConversationOfTwoUsers);
 

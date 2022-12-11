@@ -4,7 +4,6 @@ import { format } from "timeago.js";
 import { Avatar } from "@mui/material";
 import Love from "@mui/icons-material/FavoriteBorder";
 import { Fab } from "@mui/material";
-import PostImage from "./PostImage";
 function Post({ data }) {
   const userId = localStorage.getItem("UserId");
   const postId = data._id;
@@ -27,14 +26,7 @@ function Post({ data }) {
   return (
     <div className="Post">
       <div className="PostHeader">
-        {data.user.photo ? (
-          <Avatar src={require(`../../public/img/avatar/${data.user.photo}`)} />
-        ) : (
-          <Avatar
-            src="/static/images/avatar/1.jpg"
-            alt={data.user.name}
-          />
-        )}
+        <Avatar alt={data.user.photo} src={data.user.name} />
         <div className="PostHeaderInfo">
           <h3>{data.user.name}</h3>
           <p>{format(data.created_at)}</p>
@@ -43,10 +35,10 @@ function Post({ data }) {
       <div className="PostBody">
         <p>{data.content}</p>
         {data.image && (
-          // <PostImage imageSource={data.image } />
           <img
             className="postImages"
-            src={require(`../Assets/Images/Cloud/${data.image}`)}
+            src={require(`../Assets/Images/Post/${data.image}`)}
+            alt="Post"
           />
         )}
       </div>
@@ -86,12 +78,13 @@ function Post({ data }) {
       </div>
       {/* COMMENT */}
       {data.comments?.map((c) => (
-        <div className="Comment" key={c._id}>
+        <div className="Comment">
           <div className="CommentHeader">
-          {c.user.photo ? <Avatar src={require(`../../public/img/avatar/${c.user.photo}`)} /> : <Avatar
-                  src="/static/images/avatar/1.jpg"
-                  alt={c.user.name}
-                />}
+            <Avatar
+              src={c.user.photo}
+              sx={{ width: 35, height: 35, margin: 1 }}
+              alt={c.user.name}
+            />
           </div>
           <div className="CommentBody">
             <div className="CommentHeaderInfo">

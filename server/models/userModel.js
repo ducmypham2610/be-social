@@ -22,10 +22,10 @@ const userSchema = new Schema({
   },
   gender: {
     type: String,
-    enum: ["male", "female", "undefined"],
+    enum: ["man", "woman", "undefined"],
   },
   gender_interest: {
-    enum: ["male", "female", "undefined"],
+    enum: ["man", "woman", "undefined"],
     type: String,
   },
   about: {
@@ -41,16 +41,7 @@ const userSchema = new Schema({
     type: String,
   },
   liked_by: [{ type: String, ref: "User" }],
-  type: {
-    type: String,
-    default: "normal"
-  }
 });
-
-// userSchema.pre(/^find/, function (next) {
-//   this.populate({ path: "liked_by", select: "_id name photo" });
-//   next();
-// });
 
 const User = mongoose.model("User", userSchema);
 

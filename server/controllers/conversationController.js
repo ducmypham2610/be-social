@@ -15,6 +15,7 @@ exports.startConversation = async (req, res) => {
 // get conversation of a user
 exports.getConversation = async (req, res) => {
   const userId = req.params.userId;
+  console.log(userId)
   const conversations = await Conversation.find({
     members: { $in: [userId] },
   });
@@ -47,18 +48,3 @@ exports.getConversationOfTwoUsers = async (req, res) => {
     conversation,
   });
 };
-
-exports.getConversationById = async (req,res) => {
-  const id = req.params.id;
-  console.log(id);
-  const conversation = await Conversation.findById(id);
-  if(!conversation) {
-    return res.status(204).json({
-      status:"No conversation found"
-    })
-  }
-  return res.status(200).json({
-    status:"Found conversation",
-    conversation
-  })
-}

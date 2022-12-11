@@ -21,7 +21,6 @@ import Support from './Pages/Support';
 import Policy from './Pages/Policy';
 import Chill from './Pages/Chill';
 import Intro from './Pages/Intro';
-import Room from "./Pages/Room";
 import AuthContextProvider from "./context/AuthContext";
 import Profile from "./Pages/Profile";
 import Crush from "./Pages/Crush";
@@ -36,13 +35,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/aboutme" element={<About />} />
-            <Route path="/room/:id" element={<Room />} />
-            <Route path="/chill" element={<Chill />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/global" element={<Global />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/messages/:friendId" element={<Messages />} />
+            <Route path="/messages" element={<Messages />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
             <Route path="/payment" element={<Payment />} />
@@ -51,6 +47,7 @@ function App() {
             <Route path="/policy" element= {<Policy/>} />
             <Route path="/chill" element= {<Chill/>} />
             <Route path="/started" element= {<Intro/>} />
+            <Route path="/profile" element= {<Profile/>} />
             <Route path="/crush" element= {<Crush/>} />
           </Routes>
           {/* </Layout> */}

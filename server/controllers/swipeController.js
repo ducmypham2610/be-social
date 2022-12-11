@@ -13,6 +13,7 @@ exports.handleSwipedRight = async (req, res, next) => {
   const { userId, swipedUserId } = req.body;
   const objectUserId = mongoose.Types.ObjectId(req.body.userId);
   const objectSwipedUserId = mongoose.Types.ObjectId(req.body.swipedUserId);
+  console.log("hehe", { userId, swipedUserId });
 
   // update liked_by for swiped user
   const swipedUser = await User.findOneAndUpdate(

@@ -5,7 +5,6 @@ const path = require('path');
 
 exports.getUser = async (req, res, next) => {
   const id = req.query.userId;
-  console.log(id);
   const user = await User.findById(id);
   if (!user) {
     return res.status(204).json({
@@ -53,7 +52,7 @@ exports.login = async (req, res, next) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../client/public/img/avatar");
+    cb(null, "../client/src/Assets/Images");
   },
   filename: (req, file, cb) => {
     cb(
@@ -100,7 +99,7 @@ exports.getGenderInterestUser = async (req, res, next) => {
   const id = req.query.id;
   const users = await User.find({ gender,  matches: { $nin: [id] } });
   return res.status(200).json({
-    status: "Success find matches users",
+    status: "success",
     users,
   });
 };

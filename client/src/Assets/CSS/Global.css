@@ -203,7 +203,7 @@ a{
 
 .sidebar .KeyChatImage{
     width: 20%;
-    height: 70px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
