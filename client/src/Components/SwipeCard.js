@@ -17,7 +17,7 @@ function SwipeCard() {
     getUser(userId)
       .then((res) => setUser(res.data.user))
       .catch((err) => console.log(err));
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     if (user !== null) {
@@ -25,7 +25,7 @@ function SwipeCard() {
         .then((res) => setGenderedUsers(res.data.users))
         .catch((err) => console.log(err));
     }
-  });
+  },[]);
 
   const childRefs = useMemo(
     () =>
@@ -58,6 +58,7 @@ function SwipeCard() {
   };
 
   const swipe = async (dir) => {
+    console.log(dir)
     if (canSwipe && currentIndex < genderedUsers.length) {
       await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
       // Set location card center bottom of screen and when swipe card rotate 180deg around x-axis

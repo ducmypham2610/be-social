@@ -17,7 +17,7 @@ exports.handleSwipedRight = async (req, res, next) => {
   // update liked_by for swiped user
   const swipedUser = await User.findOneAndUpdate(
     { _id: objectSwipedUserId },
-    { $push: { liked_by: userId } }
+    { $push: { liked_by: objectUserId } }
   );
   // Check user is liked by swiped user
   const user = await User.findById({ _id: userId });

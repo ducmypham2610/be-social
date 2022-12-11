@@ -124,7 +124,6 @@ const Room = (props) => {
       {peers.map((peer, index) => {
         return <Video key={index} peer={peer} />;
       })}
-      <button onClick={toggleVisible}>{visible ? "Turn off camera" : "Turn on camera"}</button>
     </Container>
   );
 };

@@ -13,11 +13,13 @@ export default function Matches() {
   const userId = localStorage.getItem("UserId");
   const [user, setUser] = useState(null);
   const [matchesUser, setMatchesUser] = useState([]);
+  const [likedByUser, setLikedByUser] = useState([]);
 
   useEffect(() => {
     getUser(userId)
       .then((res) => {
         setUser(res.data.user);
+        setLikedByUser(res.data.likedByUsers);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -55,32 +57,42 @@ export default function Matches() {
           <p>This is a list of people who have liked you and your matches.</p>
         </div>
         <div className="MatchBody">
-          <div className="Card">
-            <div className="Blur">
-              <div className="CardHeader">
-                <p>Rose, 23</p>
-                <div className="CardHeaderIcons">
-                  <ButtonGroup
-                    size="large"
-                    variant="contained"
-                    aria-label="outlined primary button group"
-                  >
-                    <Button>
-                      <Love />
-                    </Button>
-                    <Button>
-                      <Deny />
-                    </Button>
-                  </ButtonGroup>
+          {likedByUser?.map((character, index) => (
+            <div className="Card" key={index}>
+              <div className="Blur">
+                <div className="CardHeader">
+                  <p>{character.name}, {calculateAge(character.dob)}</p>
+                  <div className="CardHeaderIcons">
+                    <ButtonGroup
+                      size="large"
+                      variant="contained"
+                      aria-label="outlined primary button group"
+                    >
+                      <Button>
+                        <Love />
+                      </Button>
+                      <Button>
+                        <Deny />
+                      </Button>
+                    </ButtonGroup>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
+
           {matchesUser?.map((character, index) => (
-            <div className="Card" style={{ backgroundImage: `url('/img/avatar/${character.photo}')`}}>
+            <div
+              className="Card"
+              style={ user.type === 'normal' ? {
+                backgroundImage: `url('/img/avatar/${character.photo}')`,
+              } : {}}
+              key={index}
+            >
               <div className="CardHeader">
-                <p>{character.name}, {calculateAge(character.dob)}</p>
-                
+                <p>
+                  {character.name}, {calculateAge(character.dob)}
+                </p>
               </div>
             </div>
           ))}
