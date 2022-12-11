@@ -93,7 +93,7 @@ export default function Crush() {
                                 },
                             }}
                         >
-                            <Tab label="Started" {...a11yProps(0)} />
+                            <Tab label="Coffee" {...a11yProps(0)} />
                             <Tab label="Hangout" {...a11yProps(1)} />
                             <Tab label="Friendzone" {...a11yProps(2)} />
                             <Tab label="Findout" {...a11yProps(3)} />
@@ -103,7 +103,8 @@ export default function Crush() {
                         </Tabs>
                         <TabPanel value={value} index={0}>
                             <div className="crushItem">
-                                
+                                <h1>The Coffee House</h1>
+                                <p>The Coffee House </p>
                             </div>
                         </TabPanel>
                         <TabPanel value={value} index={1}>
@@ -122,7 +123,11 @@ export default function Crush() {
                             Item Six
                         </TabPanel>
                         <TabPanel value={value} index={6}>
-                            Item Seven
+                            <div className="crushItem">
+                                <h1>Started</h1>
+                                <p>BeTek will give you tips for chatting with your Crush.</p>
+
+                            </div>
                         </TabPanel>
                     </Box>
                 </div>
