@@ -38,7 +38,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/global" element={<Global />} />
-            <Route path="/messages" element={<Messages />} />
+            <Route path="/messages/:friendId" element={<Messages />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
             <Route path="/payment" element={<Payment />} />

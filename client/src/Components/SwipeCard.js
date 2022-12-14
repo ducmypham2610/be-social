@@ -27,6 +27,29 @@ function SwipeCard() {
     }
   });
 
+  // When dragging, we want to stop the animation
+  const onCardDrag = (e, pos) => {
+    const isDraggingLeft = pos.x < 0;
+    const isDraggingRight = pos.x > 0;
+    if (isDraggingLeft) {
+      setLastDirection("left");
+    } else if (isDraggingRight) {
+      setLastDirection("right");
+    }
+  };
+
+  // When dragging, we want to the card set aiming for the bottom center of the screen
+  const onCardDragStart = (e, pos) => {
+    const isDraggingLeft = pos.x < 0;
+    const isDraggingRight = pos.x > 0;
+    if (isDraggingLeft) {
+      setLastDirection("left");
+    } else if (isDraggingRight) {
+      setLastDirection("right");
+    }
+  };
+
+
   const childRefs = useMemo(
     () =>
       Array(genderedUsers.length)

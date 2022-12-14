@@ -9,32 +9,16 @@ export default function Premium() {
 
     let navigate = useNavigate();
     const titan = async () => { 
-        window.location.href ='https://me.momo.vn/BeDating/WPe9932GA5RxeLy';
+        window.location.href ='/payment';
     }
 
     const gold = async () => { 
-        window.location.href ='https://me.momo.vn/BeDating/QBeXQYMqP995ayK';
+        window.location.href ='/payment';
     }
 
     const platinum = async () => { 
-        window.location.href ='https://me.momo.vn/BeDating/jnegp7k8GAlYawZ';
+        window.location.href ='/payment';
     }
-
-    // const btn1 = document.getElementById('btn1');
-    // btn1.addEventListener('click', function() {
-    //     window.location.href ='https://me.momo.vn/BeDating/WPe9932GA5RxeLy';
-    // });
-    
-    // const btn2 = document.getElementById('btn2');
-    // btn2.addEventListener('click', function() {
-    //     window.location.href ='https://me.momo.vn/BeDating/QBeXQYMqP995ayK';
-    // });
-    
-    
-    // const btn3 = document.getElementById('btn3');
-    // btn3.addEventListener('click', function() {
-    //     window.location.href ='https://me.momo.vn/BeDating/jnegp7k8GAlYawZ';
-    // });
     return (
         <Layout>
             <div className="Premium">

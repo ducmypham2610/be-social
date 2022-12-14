@@ -1,6 +1,7 @@
 import Layout from "../Components/Layout";
 import "../Assets/CSS/Pages/Payment.css"
 import Bank from "../Assets/Images/Bank.jpg";
+import Button from "@mui/material/Button";
 
 export default function Payment() {
     return (
@@ -54,15 +55,11 @@ export default function Payment() {
                         <table>
                             <tr>
                                 <th>Email</th>
-                                <td>yourmail@fpt.edu.vn</td>
+                                <td>Email@gmail.com</td>
                             </tr>
                             <tr>
                                 <th>Gold</th>
                                 <td>120,000 VND</td>
-                            </tr>
-                            <tr>
-                                <th>Discount</th>
-                                <td>0</td>
                             </tr>
                             <tr>
                                 <th colSpan={2}><hr/></th>
@@ -73,24 +70,13 @@ export default function Payment() {
                             </tr>
                         </table>
                         <h3>Transfer Contents</h3>
-                        {/* <h3 className="cTrans">yourmail@fpt</h3> */}
-                        {/* Tạo khung command copy dòng h3 trên */}
                         <div className="cTrans">
-                            <h3>BeDating yourmail@fpt.edu.vn</h3>
-                        </div>
-                        
-                        {/* <div className="cTrans">
-                            <h3>yourmail@fpt</h3>
-                            <Button size="small" variant="contained">Copy</Button>
-                        </div>      */}
-                        
+                            <h3>BeDating </h3>
+                        </div>          
                         <img src={Bank} alt = "Bank"/>
+                        <Button variant="contained" style={{backgroundColor: '#E94057', color: 'white', fontWeight: 'bold', width:'13rem', marginTop:'0.6rem'}}>Complete payment</Button>
                     </div>
                 </div>
-                {/* <div className="FootPage">
-                    <Button variant="outlined" style={{fontWeight: 'bold', width:'10rem', margin:'1%'}}>Cancel</Button>
-                    <Button variant="contained" style={{backgroundColor: '#E94057', color: 'white', fontWeight: 'bold', width:'13rem'}}>Complete payment</Button>
-                </div> */}
             </div>
         </Layout>
     )
