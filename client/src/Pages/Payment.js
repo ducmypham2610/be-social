@@ -3,7 +3,24 @@ import "../Assets/CSS/Pages/Payment.css"
 import Bank from "../Assets/Images/Bank.jpg";
 import Button from "@mui/material/Button";
 
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import React from "react";
+
+
 export default function Payment() {
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <Layout>
             <div className="Payment">
@@ -12,44 +29,32 @@ export default function Payment() {
                     <p>Payment by bank transfer</p>
                 </div>
                 <div className="Group">
-                    {/* <div className="Pay">
-                        <div className="Info">
-                            <h3>Information</h3>
-                            <table>
-                                <tr>
-                                    <th>Full Name</th>
-                                    <td>Quach Cong Tuan</td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td>tuanqcbhaf200014@fpt.edu.vn</td>
-                                </tr>
-                                <tr>
-                                    <th>Phone Number</th>
-                                    <td>098-1979-901</td>
-                                </tr>
-                                <tr>
-                                    <th>Status</th>
-                                    <td><span style={{color: '#E94057', fontWeight:'bold'}}>Standard</span></td>
-                                </tr>
-                                <tr>
-                                    <th>Coupon</th>
-                                    <td><input type="text" name="coupon" maxlength="7" size="7" placeholder="ABC-DET"/></td>
-                                </tr>
-                                <tr>
-                                    <td><Button size="small" variant="contained" style={{background:'#E94057',width:'100%'}}>Cancel</Button></td>
-                                    <td><Button size="small" variant="contained" style={{width:'50%'}} color='secondary'>Confirm</Button></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div className="Code">
-                            <h3>Payment Guide</h3>
-                            <p><b>1. </b>Please pay the exact amount requested.</p>
-                            <p><b>2. </b>Make sure you enter the correct content we display.</p>
-                            <p><b>3. </b>Before transferring, please double check the information and take a screenshot of the transfer.</p>
-                            <p><b>4. </b>After transferring, please send the screenshot to the email: <span style={{color: '#E94057', fontWeight:'bold'}}>yourmail@fpt.edu.vn</span></p>
-                        </div>
-                    </div> */}
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        <h5
+                        style={{
+                            color: '#E94057',
+                            fontWeight: 'bold',
+                            fontSize: '1.5rem',
+                        }}>Confirm Payment</h5>
+                    </DialogTitle>
+                    <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Hi there! We have received your payment. Please wait for the confirmation email from us. Thank you!
+                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleClose} autoFocus>
+                        Confirm
+                    </Button>
+                    </DialogActions>
+                </Dialog>
                     <div className="Bank">
                         <h3>Invoice</h3>
                         <table>
@@ -74,7 +79,7 @@ export default function Payment() {
                             <h3>BeDating </h3>
                         </div>          
                         <img src={Bank} alt = "Bank"/>
-                        <Button variant="contained" style={{backgroundColor: '#E94057', color: 'white', fontWeight: 'bold', width:'13rem', marginTop:'0.6rem'}}>Complete payment</Button>
+                        <Button variant="contained" onClick={handleClickOpen} style={{backgroundColor: '#E94057', color: 'white', fontWeight: 'bold', width:'13rem', marginTop:'0.6rem'}}>Complete payment</Button>
                     </div>
                 </div>
             </div>

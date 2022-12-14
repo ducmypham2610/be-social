@@ -84,7 +84,7 @@ export default function Matches() {
           {matchesUser?.map((character, index) => (
             <div
               className="Card"
-              style={ user.type === 'normal' ? {
+              style={ user?.type === 'normal' ? {
                 backgroundImage: `url('/img/avatar/${character.photo}')`,
               } : {}}
               key={index}

@@ -38,18 +38,6 @@ function SwipeCard() {
     }
   };
 
-  // When dragging, we want to the card set aiming for the bottom center of the screen
-  const onCardDragStart = (e, pos) => {
-    const isDraggingLeft = pos.x < 0;
-    const isDraggingRight = pos.x > 0;
-    if (isDraggingLeft) {
-      setLastDirection("left");
-    } else if (isDraggingRight) {
-      setLastDirection("right");
-    }
-  };
-
-
   const childRefs = useMemo(
     () =>
       Array(genderedUsers.length)
@@ -83,6 +71,10 @@ function SwipeCard() {
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < genderedUsers.length) {
       await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
+
+      // Update the last direction
+      setLastDirection(dir);
+      
     } 
     else {
       console.log("no more cards");

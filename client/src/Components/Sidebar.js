@@ -284,10 +284,7 @@ function Sidebar() {
             </div>
             <div className="ProfileName">
               <h3>{user?.name}</h3>
-            </div>
-            {/* <div className="Nav">
-                        <button><i class="fa-solid fa-earth-asia"></i></button>
-                    </div> */}
+            </div>          
           </div>
           <div className="Menu">
             <Box sx={{ width: "100%" }}>
@@ -324,11 +321,15 @@ function Sidebar() {
                         currentUser={user}
                       />
                   ))}
-                </div>,
-                <img src={Chat} alt="Chat" className="chat" />,
-                <h3>Say Hello</h3>,
-                <p>Looking to strike up a conversation? When you match with others, you can send them a mesages under "Matches"</p>
+                </div>
               ]}
+              {
+                value === 1 && conversations?.length == 0 && [
+                  <img src={Chat} alt="Chat" className="chat" />,
+                  <h3>Say Hello</h3>,
+                  <p>Looking to strike up a conversation? When you match with others, you can send them a mesages under "Matches"</p>
+                ]
+              }
             </Box>
           </div>
           <div className="Direct">
@@ -355,16 +356,16 @@ function Sidebar() {
                     icon={action.icon}
                     tooltipTitle={action.name}
                     onClick={
-                      action.name === "Global"
-                        ? Global
-                        : action.name === "Home"
+                        action.name === "Home"
                         ? Home
+                        : action.name === "Global"
+                        ? Global
                         : action.name === "Premium"
                         ? Premium
-                        : action.name === "Support"
-                        ? Support
                         : action.name === "Chill"
                         ? Chill
+                        : action.name === "Support"
+                        ? Support
                         : action.name === "Logout"
                         ? SignOut
                         : null

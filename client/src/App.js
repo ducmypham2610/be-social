@@ -24,6 +24,8 @@ import Intro from './Pages/Intro';
 import AuthContextProvider from "./context/AuthContext";
 import Profile from "./Pages/Profile";
 import Crush from "./Pages/Crush";
+import RoomFacetimePage from "./Pages/Roompage/facetime";
+
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/global" element={<Global />} />
             <Route path="/messages/:friendId" element={<Messages />} />
+            <Route path="/room/:roomId" element={<RoomFacetimePage />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
             <Route path="/payment" element={<Payment />} />

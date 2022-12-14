@@ -4,6 +4,8 @@ import { getUser } from "../services/userService";
 import { useNavigate } from "react-router-dom";
 import Nancy from '../Assets/Images/Cloud/Nancy.jpg';
 import { Avatar } from "@mui/material";
+
+
 function Conversation({ conversation, currentUser }) {
   let navigate = useNavigate();
   const friendId = conversation.members.find((m) => m !== currentUser._id);

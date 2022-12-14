@@ -14,9 +14,6 @@ import UserImage from "../Components/UserImage";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 
-import Jisoo from "../Assets/Images/Cloud/Jisoo2.jpg";
-import Jisoo2 from "../Assets/Images/Cloud/Jisoo.jpg";
-
 import { io } from "socket.io-client";
 import { getUser } from "../services/userService";
 import {
@@ -176,7 +173,6 @@ export default function Messages() {
         <div className="Chat">
           <div className="WChat">
             <div className="Name">
-
               <h3>{friend.name}</h3>
               <Fab
                 size="small"
@@ -283,31 +279,3 @@ export default function Messages() {
     </Layout>
   );
 }
-
-//DATA
-const itemData = [
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo2,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo2,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-];
