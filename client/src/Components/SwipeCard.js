@@ -25,7 +25,7 @@ function SwipeCard() {
         .then((res) => setGenderedUsers(res.data.users))
         .catch((err) => console.log(err));
     }
-  },[]);
+  },[user]);
 
   const childRefs = useMemo(
     () =>

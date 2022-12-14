@@ -6,14 +6,17 @@ const path = require('path');
 exports.getUser = async (req, res, next) => {
   const id = req.query.userId;
   const user = await User.findById(id);
-  const likedById = user.liked_by;
-  const likedByUsers = [];
-  console.log(likedById);
-  for (const u in likedById) {
-    const user = await User.findById(likedById[u]);
-    likedByUsers.push(user);
-  }
-  console.log(likedByUsers)
+  // if(user.liked_by.length > 0){
+  //   const likedById = user.liked_by;
+  //   const likedByUsers = [];
+  //   console.log(likedById);
+  //   for (const u in likedById) {
+  //     const user = await User.findById(likedById[u]);
+  //     likedByUsers.push(user);
+  //   }
+  // console.log(likedByUsers)
+  // }
+  
   if (!user) {
     return res.status(204).json({
       status: "No content",
@@ -22,7 +25,7 @@ exports.getUser = async (req, res, next) => {
   return res.status(200).json({
     status: "success",
     user,
-    likedByUsers
+    // likedByUsers
   });
 };
 

@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Global from "./Pages/Global";
 import Messages from "./Pages/Messages";
-import Facetime from "./Pages/Facetime";
 import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
 import About from "./Pages/Aboutme";
@@ -21,7 +20,8 @@ import Chill from "./Pages/Chill";
 import Profile from "./Pages/Profile";
 import Room from "./Pages/Room";
 import AuthContextProvider from "./context/AuthContext";
-
+import HomePage from "./Pages/facetime";
+import RoomFacetimePage from "./Pages/Roompage/facetime";
 function App() {
   return (
     <React.Fragment>
@@ -39,10 +39,11 @@ function App() {
             <Route path="/global" element={<Global />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/messages/:friendId" element={<Messages />} />
-            <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/matches" element={<Matches />} />
+            <Route path="/Home/facetimepage" element={<HomePage />} />
+            <Route path="/room/:roomId" element={<RoomFacetimePage />} />
           </Routes>
           {/* </Layout> */}
         </Router>
