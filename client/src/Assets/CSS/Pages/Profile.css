@@ -45,10 +45,15 @@
     color: #fff !important;
   }
   .content-profile .ant-radio-button-wrapper:hover{
-    color: #fff !important;
+    /* color: #fff !important; */
     background: #e94057 !important;
     border-color: #e94057 !important;
   }
+
+  .content-profile .ant-radio-button-wrapper:hover h1{
+    color: #fff !important;
+  }
+
   .content-profile .dob{
     display: flex;
     flex-direction: row;
@@ -59,11 +64,7 @@
     font-size: 15px ;
   
   }
-  .content-profile h1:hover{
-    text-align: center;
-    font-size: 15px ;
-    color: #fff !important;
-  }
+
   /* tile uploaded pictures */
   .ant-upload {
     width: 300px !important;

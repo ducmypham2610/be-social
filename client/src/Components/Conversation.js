@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Assets/CSS/Pages/Messages.css";
 import { getUser } from "../services/userService";
 import { useNavigate } from "react-router-dom";
-import Nancy from '../Assets/Images/Cloud/Nancy.jpg';
 import { Avatar } from "@mui/material";
-
 
 function Conversation({ conversation, currentUser }) {
   let navigate = useNavigate();

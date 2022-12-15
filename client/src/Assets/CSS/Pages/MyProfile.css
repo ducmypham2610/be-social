@@ -1,0 +1,29 @@
+.MyProfile textfield:hover {
+    border: 1px solid #E94057 !important;
+}
+
+.MyProfile label[data-shrink=false]+.MuiInputBase-formControl .css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
+    border: 1px solid #E94057 !important;
+}
+
+.MyProfile :where(.css-dev-only-do-not-override-1ij74fp).ant-picker-focused {
+    border: 1px solid #E94057 !important;
+    box-shadow: none;
+}
+
+.MyProfile .MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
+    border: 1px solid #E94057 !important;
+}
+
+.MyProfile .MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-multiline css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root-MuiInputBase-colorPrimary-MuiInputBase-formControl-MuiInputBase-multiline {
+    border: 1px solid #E94057 !important;
+}
+
+.MyProfile .MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-multiline css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root-MuiInputBase-colorPrimary-MuiInputBase-formControl-MuiInputBase-multiline:hover {
+    border: 1px solid #E94057 !important;
+}
+
+.MyProfile .MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-multiline css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root-MuiInputBase-colorPrimary-MuiInputBase-formControl-MuiInputBase-multiline:hover .MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input:focus {
+    border: 1px solid #E94057 !important;
+}
+
