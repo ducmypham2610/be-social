@@ -18,6 +18,7 @@ import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import EditIcon from "@mui/icons-material/Edit";
 import Logout from "@mui/icons-material/Lock";
+import CrushA from "@mui/icons-material/VolunteerActivismRounded";
 
 import Photo from "../Assets/Images/Cloud/Rose2.jpg";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +37,9 @@ function Sidebar() {
 
   useEffect(() => {
     getUser(userId)
-      .then((res) => {setUser(res.data.user)})
+      .then((res) => {
+        setUser(res.data.user);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -54,11 +57,12 @@ function Sidebar() {
   };
 
   const actions = [
-    { icon: <PublicIcon />, name: "Global" },
     { icon: <AllInclusiveIcon />, name: "Home" },
+    { icon: <PublicIcon />, name: "Global" },
     { icon: <AccountBalanceWalletIcon />, name: "Premium" },
     { icon: <SupportAgentIcon />, name: "Support" },
     { icon: <PodcastsIcon />, name: "Chill" },
+    { icon: <CrushA />, name: "Crush" },
     { icon: <Logout />, name: "Logout" },
   ];
 
@@ -81,6 +85,9 @@ function Sidebar() {
   const Matches = () => {
     navigate("/matches");
   };
+  const Crush = () => {
+    navigate("/crush");
+  };
   const SignOut = () => {
     localStorage.clear();
     navigate("/login");
@@ -95,20 +102,22 @@ function Sidebar() {
             <div className="ProfileImage">
               <a href="/profile">
                 {" "}
-                {user?.photo ? <Avatar src={require(`../../public/img/avatar/${user.photo}`)} /> : <Avatar
-                  sx={{ width: 55, height: 55 }}
-                  src="/static/images/avatar/1.jpg"
-                  alt={user?.name}
-                />}
-                {" "}
+                {user?.photo ? (
+                  <Avatar
+                    src={require(`../../public/img/avatar/${user.photo}`)}
+                  />
+                ) : (
+                  <Avatar
+                    sx={{ width: 55, height: 55 }}
+                    src="/static/images/avatar/1.jpg"
+                    alt={user?.name}
+                  />
+                )}{" "}
               </a>
             </div>
             <div className="ProfileName">
               <h3>{user?.name}</h3>
             </div>
-            {/* <div className="Nav">
-                        <button><i class="fa-solid fa-earth-asia"></i></button>
-                    </div> */}
           </div>
           <div className="Menu">
             <Box sx={{ width: "100%" }}>
@@ -125,31 +134,42 @@ function Sidebar() {
                 <Tab label="Messages" />
               </Tabs>
               {}
-              {
-                value === 0 && user?.matches && (
+              {value === 0 &&
+                !user?.matches.length == 0 && [
                   <div className="ShowMatches" onClick={Matches}>
                     <img src={Photo} alt="Match" className="CountMatches" />
                     <button>{user?.matches.length}</button>
-                  </div>
-                )
-                // <img src={Match} alt="match" className="match" />,
-                // <h3>Start Matching</h3>,
-                // <p>Looking to strike up a conversation? When you match with others, you can send them a mesages under "Matches"</p>
-              }
+                  </div>,
+                ]}
+              {value === 0 &&
+                user?.matches.length == 0 && [
+                  <img src={Match} alt="match" className="match" />,
+                  <h3>Start Matching</h3>,
+                  <p>
+                    Looking to strike up a conversation? When you match with
+                    others, you can send them a mesages under "Matches"
+                  </p>,
+                ]}
               {value === 1 && [
                 <div className="ListChat">
                   {conversations?.map((c) => (
-                      <Conversation
-                        key={c._id}
-                        conversation={c}
-                        currentUser={user}
-                      />
+                    <Conversation
+                      key={c._id}
+                      conversation={c}
+                      currentUser={user}
+                    />
                   ))}
                 </div>,
-                // <img src={Chat} alt="Chat" className="chat" />,
-                // <h3>Say Hello</h3>,
-                // <p>Looking to strike up a conversation? When you match with others, you can send them a mesages under "Matches"</p>
               ]}
+              {value === 1 &&
+                conversations?.length == 0 && [
+                  <img src={Chat} alt="Chat" className="chat" />,
+                  <h3>Say Hello</h3>,
+                  <p>
+                    Looking to strike up a conversation? When you match with
+                    others, you can send them a mesages under "Matches"
+                  </p>,
+                ]}
             </Box>
           </div>
           <div className="Direct">
@@ -176,18 +196,20 @@ function Sidebar() {
                     icon={action.icon}
                     tooltipTitle={action.name}
                     onClick={
-                      action.name === "Global"
-                        ? Global
-                        : action.name === "Home"
+                      action.name === "Home"
                         ? Home
+                        : action.name === "Global"
+                        ? Global
                         : action.name === "Premium"
                         ? Premium
-                        : action.name === "Support"
-                        ? Support
                         : action.name === "Chill"
                         ? Chill
+                        : action.name === "Support"
+                        ? Support
                         : action.name === "Logout"
                         ? SignOut
+                        : action.name === "Crush"
+                        ? Crush
                         : null
                     }
                   />

@@ -1,0 +1,63 @@
+.Support{
+    padding: 3%;
+}
+
+.SupportHeader{
+    font-size: 2.5em;
+    font-weight: 600;
+    background: linear-gradient(to left, #ee0979, #ff6a00);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.Support .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+    color: #ff6a00;
+}
+
+.Support .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+    color: #E94057;
+}
+
+.SupportForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SupportForm p{
+    padding: 1%;
+}
+
+.SupportForm button{
+    margin: 1%;
+}
+
+.SupportForm .SupportFormHeader{
+    width: 100%;
+}
+
+.SupportForm .SupportFormHeader h1{
+    padding: 1%;
+}
+
+.SupportComplete{
+    text-align: justify;
+}
+
+.SupportComplete h1{
+    font-size: 2.5em;
+    font-weight: 600;
+    background: linear-gradient(to left, #ee0979, #ff6a00);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    /* margin-bottom: 5vh; */
+    padding: 2%;
+}
+
+.SupportComplete p, .SupportComplete h3{
+    padding: 1%;
+}

@@ -13,14 +13,17 @@ import Messages from "./Pages/Messages";
 import Facetime from "./Pages/Facetime";
 import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
-import About from "./Pages/Aboutme";
 import Premium from "./Pages/Premium";
 import Payment from "./Pages/Payment";
 import Matches from "./Pages/Matches";
 import Chill from "./Pages/Chill";
 import Profile from "./Pages/Profile";
 import Room from "./Pages/Room";
+import Support from "./Pages/Support";
+import About from "./Pages/About"
+import Crush from './Pages/Crush'
 import AuthContextProvider from "./context/AuthContext";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -32,7 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/aboutme" element={<About />} />
-            <Route path="/room/:id" element={<Room />} />
+            <Route exact path="/room/:id" element={<Room />} />
             <Route path="/chill" element={<Chill />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
@@ -41,8 +44,11 @@ function App() {
             <Route path="/messages/:friendId" element={<Messages />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
-            <Route path="/payment" element={<Payment />} />
+            <Route path="/payment/:id" element={<Payment />} />
             <Route path="/matches" element={<Matches />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/policy" element={<About />} />
+            <Route path="/crush" element={<Crush />} />
           </Routes>
           {/* </Layout> */}
         </Router>

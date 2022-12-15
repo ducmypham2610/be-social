@@ -5,10 +5,9 @@
     justify-content: center;
 }
 
-.Pay .Group{
+.Payment .Group{
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
     justify-content: center;
     width: 80%;
 }
@@ -34,48 +33,6 @@
     background: linear-gradient(to left, #ee0979, #ff6a00);
     background-clip: text;
     color: transparent;
-}
-
-.Pay table{
-    padding: 2%;
-    width: 100%;
-}
-
-.Pay th, .Pay td{
-    padding: 2%;
-    text-align: left;
-}
-
-.Info{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.Info input{
-    width: 50%;
-    padding: 1%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 1%;
-    outline: none;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.Code{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-style: italic;
-    background-color: #E94057;
-    color: #FFF;
-    padding: 2%;
-    border-radius: 5px;
-}
-
-.Code p{
-    font-size: 0.9rem;
 }
 
 hr{
@@ -125,30 +82,28 @@ hr{
     justify-content: space-between;
 }
 
-.cTrans button{
-    background-color: white;
-    color: #ee0979;
-    border-radius: 5px;
-    margin: 2%;
-    width: 20%;
-}
-
-.cTrans button:hover{
-    background-color: #ee0979;
-    color: white;
+.cTrans h3{
+    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 @media screen and (max-width: 768px){
-    .Choice-Content{
-        width: 100%;
-        margin: 5%;
-        height: 100%;
+    .Pay{
+        display: none;
     }
 
-    .Premium{
+    .Bank{
+        display: flex;
         width: 100%;
         height: 100%;
-        margin-bottom: 10vh;
+        margin-bottom: 10vh !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 2%;
+        margin: 2%;
     }
 }
     

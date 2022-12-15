@@ -27,8 +27,10 @@ import axios from "axios";
 import Conversation from "../Components/Conversation";
 import Message from "../Components/Message";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Messages() {
+  const navigate = useNavigate();
   const { friendId } = useParams();
   const socket = useRef();
   const scrollRef = useRef();
@@ -170,6 +172,10 @@ export default function Messages() {
     }
   }
 
+  const videoCall = (id) => {
+    navigate(`/room/${id}`)
+  }
+
   return (
     <Layout>
       <div className="Messages">
@@ -183,6 +189,7 @@ export default function Messages() {
                 color="primary"
                 aria-label="add"
                 style={{ background: "#E94057", zIndex: "1" }}
+                onClick={() => (videoCall(currentChat?._id))}
               >
                 <Facetime />
               </Fab>
@@ -267,7 +274,7 @@ export default function Messages() {
         </div>
         <div className="Profile">
           <div className="Main">
-            {friend?.photo && <img src={require(`../Assets/Images/Cloud/${friend.photo}`)} />}
+            {friend?.photo && <img src={require(`../../public/img/avatar/${friend.photo}`)} />}
           </div>
           <div className="Info">
             <div className="Name">
@@ -283,31 +290,3 @@ export default function Messages() {
     </Layout>
   );
 }
-
-//DATA
-const itemData = [
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo2,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo2,
-    title: "Jisoo123",
-  },
-  {
-    img: Jisoo,
-    title: "Jisoo123",
-  },
-];

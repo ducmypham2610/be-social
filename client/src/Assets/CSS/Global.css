@@ -203,7 +203,7 @@ a{
 
 .sidebar .KeyChatImage{
     width: 20%;
-    height: 70px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,10 +249,8 @@ a{
 }
 
 .sidebar .Menu img{
-    padding: 30px;
     width: 100%;
     display: block;
-    margin-top: 10%;
 }
 
 .sidebar .Menu h3{
@@ -342,7 +340,7 @@ a{
     .footer{
         display: flex;
         bottom: 0;
-        position: fixed;
+        position: sticky;
         height: 8vh;
         /* margin-left: 16px; */
         background-color: #ffffff;

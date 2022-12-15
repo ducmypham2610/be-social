@@ -19,7 +19,11 @@ import FB from "@mui/icons-material/FacebookOutlined";
 import IG from "@mui/icons-material/Instagram";
 
 import Post from "../Components/Post";
-
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import SchoolIcon from "@mui/icons-material/School";
+import ChatIcon from "@mui/icons-material/Chat";
+import Tooltip from "@mui/material/Tooltip";
+import { useNavigate } from "react-router-dom";
 import { getUser } from "../services/userService";
 import { addPost, getPosts } from "../services/postService";
 
@@ -32,7 +36,7 @@ export default function Global() {
   const [textPost, setTextPost] = useState("");
   const [fileList, setFileList] = useState(null);
   const [posts, setPosts] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     getUser(userId)
       .then((res) => setUser(res.data.user))
@@ -72,9 +76,60 @@ export default function Global() {
     setFileList(e.target.files[0]);
   };
 
+  const goToRoom = (id) => {
+    navigate(`/room/${id}`);
+  };
+
   return (
     <Layout>
       <div className="Global">
+        <div className="chat-room">
+          <Tooltip title="Study">
+            <Fab
+              sx={{
+                color: "#FFFFFF",
+                background: "#E94057",
+                marginRight: "3%",
+                zIndex: "1",
+                "&:hover": { color: "#942837" },
+              }}
+              onClick={() => goToRoom('study')}
+            >
+              <SchoolIcon />
+            </Fab>
+          </Tooltip>
+
+          <Tooltip title="Entertainment">
+            <Fab
+              sx={{
+                color: "#FFFFFF",
+                background: "#E94057",
+                marginRight: "3%",
+                zIndex: "1",
+                "&:hover": { color: "#942837" },
+              }}
+              onClick={() => goToRoom('entertainment')}
+            >
+              <SportsEsportsIcon />
+            </Fab>
+          </Tooltip>
+
+          <Tooltip title="Chatting">
+            <Fab
+              sx={{
+                color: "#FFFFFF",
+                background: "#E94057",
+                marginRight: "3%",
+                zIndex: "1",
+                "&:hover": { color: "#942837" },
+              }}
+              onClick={() => goToRoom('chat')}
+            >
+              <ChatIcon />
+            </Fab>
+          </Tooltip>
+        </div>
+
         <Dialog
           onClose={handleClose}
           fullWidth={fullWidth}

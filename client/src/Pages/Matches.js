@@ -61,7 +61,9 @@ export default function Matches() {
             <div className="Card" key={index}>
               <div className="Blur">
                 <div className="CardHeader">
-                  <p>{character.name}, {calculateAge(character.dob)}</p>
+                  <p>
+                    {character.name}, {calculateAge(character.dob)}
+                  </p>
                   <div className="CardHeaderIcons">
                     <ButtonGroup
                       size="large"
@@ -84,9 +86,16 @@ export default function Matches() {
           {matchesUser?.map((character, index) => (
             <div
               className="Card"
-              style={ user.type === 'normal' ? {
-                backgroundImage: `url('/img/avatar/${character.photo}')`,
-              } : {}}
+              style={
+                user?.type === "normal"
+                  ? {
+                      backgroundImage: `url('/img/avatar/${character.photo}')`,
+                    }
+                  : {
+                      background: `linear-gradient(to right, #f857a6, #ff5858)`,
+                      opacity: "0.99",
+                    }
+              }
               key={index}
             >
               <div className="CardHeader">
