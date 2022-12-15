@@ -98,7 +98,7 @@ export default function Crush() {
                             <Tab label="Find" {...a11yProps(2)} />
                             <Tab label="Specialization" {...a11yProps(3)} />
                             <Tab label="Mention" {...a11yProps(4)} />
-                            <Tab label="Date" {...a11yProps(5)} />
+                            <Tab label="Dating" {...a11yProps(5)} />
                         </Tabs>
                         <TabPanel value={value} index={0}>
                             <div className="crushItem">

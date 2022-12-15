@@ -194,7 +194,7 @@ function Sidebar() {
                         ? Support
                         : action.name === "Logout"
                         ? SignOut
-                        : action.name === "Tip"
+                        : action.name === "Crush"
                         ? Crush
                         : null
                     }
