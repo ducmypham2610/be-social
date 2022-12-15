@@ -28,7 +28,6 @@ const getBase64 = (file) =>
 const { TextArea } = Input;
 export default function Profile() {
 
-
     const [componentDisabled, setComponentDisabled] = useState(true);
     const onFormLayoutChange = ({ disabled }) => {
         setComponentDisabled(disabled);
@@ -70,7 +69,6 @@ export default function Profile() {
             </div>
         </div>
     );
-
     return (
         <Layout>
             <div className="content-profile">

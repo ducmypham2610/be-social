@@ -17,7 +17,7 @@
 }
 
 .crushHeader h1{
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 600;
     background: linear-gradient(to left, #ee0979, #ff6a00);
     background-clip: text;
@@ -39,8 +39,19 @@
 
 .crushItem{
     height: 50vh;
-    width: 100%;
+    width: 30vw;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.crushItem p{
+    background-color: #dadada;
+    border-radius: 30px;
+    padding: 1%;
+    margin: 1%;
+    width: fit-content;
+    font-size: 1rem;
 }
 
 /* Scroll */

@@ -93,40 +93,88 @@ export default function Crush() {
                                 },
                             }}
                         >
-                            <Tab label="Coffee" {...a11yProps(0)} />
-                            <Tab label="Hangout" {...a11yProps(1)} />
-                            <Tab label="Friendzone" {...a11yProps(2)} />
-                            <Tab label="Findout" {...a11yProps(3)} />
-                            <Tab label="Dating" {...a11yProps(4)} />
-                            <Tab label="Hangout" {...a11yProps(5)} />
-                            <Tab label="Hotel" {...a11yProps(6)} />
+                            <Tab label="Started" {...a11yProps(0)} />
+                            <Tab label="Continue" {...a11yProps(1)} />
+                            <Tab label="Find" {...a11yProps(2)} />
+                            <Tab label="Specialization" {...a11yProps(3)} />
+                            <Tab label="Mention" {...a11yProps(4)} />
+                            <Tab label="Date" {...a11yProps(5)} />
                         </Tabs>
                         <TabPanel value={value} index={0}>
                             <div className="crushItem">
-                                <h1>The Coffee House</h1>
-                                <p>The Coffee House </p>
+                                <h1>The best way to start a conversation with me is to ...</h1>
+                                <div className="crushItemBody">
+                                    <p>Send the first messages</p>
+                                    <p>Ask me a questions</p>
+                                    <p>Compliment me</p>
+                                    <p>Be funny</p>
+                                    <p>Introduce yourself</p>
+                                    <p>Say more than "Hey" or "How are you?"</p>
+                                </div>
                             </div>
                         </TabPanel>
                         <TabPanel value={value} index={1}>
-                            Item Two
+                            <div className="crushItem">
+                                <h1>The best way to Continue a conversation with me is to ...</h1>
+                                <div className="crushItemBody">
+                                    <p>Be honest</p>
+                                    <p>Ask me questions</p>
+                                    <p>Compliment me</p>
+                                    <p>Mention something that we have in common</p>
+                                    <p>Be funny</p>
+                                </div>
+                            </div>
                         </TabPanel>
                         <TabPanel value={value} index={2}>
-                            Item Three
+                            <div className="crushItem">
+                                <h1>I like to ...</h1>
+                                <div className="crushItemBody">
+                                    <p>Cinema</p>
+                                    <p>Coffee</p>
+                                    <p>Pets</p>
+                                    <p>Shopping</p>
+                                    <p>Netflix and chill</p>
+                                </div>
+                            </div>
                         </TabPanel>
                         <TabPanel value={value} index={3}>
-                            Item Four
+                            <div className="crushItem">
+                                <h1>My specialization ...</h1>
+                                <div className="crushItemBody">
+                                    <p>Business</p>
+                                    <p>Information</p>
+                                    <p>Design</p>
+                                    <p>Others</p>
+                                </div>
+                            </div>
                         </TabPanel>
                         <TabPanel value={value} index={4}>
-                            Item Five
+                            <div className="crushItem">
+                                <h1>Please Mention ...</h1>
+                                <div className="crushItemBody">
+                                    <p>Assignment</p>
+                                    <p>Friend</p>
+                                    <p>Mentor</p>
+                                    <p>Travel</p>
+                                    <p>Game</p>
+                                    <p>Music</p>
+                                    <p>Some location you know</p>
+                                </div>
+                            </div>
                         </TabPanel>
                         <TabPanel value={value} index={5}>
-                            Item Six
-                        </TabPanel>
-                        <TabPanel value={value} index={6}>
                             <div className="crushItem">
-                                <h1>Started</h1>
-                                <p>BeTek will give you tips for chatting with your Crush.</p>
-
+                                <h1>Date ideas that I'm open to are ...</h1>
+                                <div className="crushItemBody">
+                                    <p>Dinner</p>
+                                    <p>Anything with food</p>
+                                    <p>Cinema (CGV/BHD/Lotte/...)</p>
+                                    <p>Something outdoors</p>
+                                    <p>Coffee</p>
+                                    <p>Something local</p>
+                                    <p>Something outdoors</p>
+                                    <p>Something casual</p>
+                                </div>
                             </div>
                         </TabPanel>
                     </Box>
