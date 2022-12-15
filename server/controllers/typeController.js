@@ -9,7 +9,8 @@ exports.createType = async (req,res) => {
 }
 
 exports.getAllTypes = async (req,res) => {
-    const types = await Type.find({});
+    let filter = {};
+    const types = await Type.find(filter);
     return res.status(200).json({
         status:"success",
         types
@@ -18,7 +19,7 @@ exports.getAllTypes = async (req,res) => {
 
 exports.getTypeById = async (req,res) => {
     const id = req.params.id;
-    const type = await Type.findById(id);
+    const type = await Type.findById({_id:id});
     if(!type) {
         return res.status(204).json({
             status:"No type found",

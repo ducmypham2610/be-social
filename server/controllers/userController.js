@@ -8,12 +8,10 @@ exports.getUser = async (req, res, next) => {
   const user = await User.findById(id);
   const likedById = user.liked_by;
   const likedByUsers = [];
-  console.log(likedById);
   for (const u in likedById) {
     const user = await User.findById(likedById[u]);
     likedByUsers.push(user);
   }
-  console.log(likedByUsers)
   if (!user) {
     return res.status(204).json({
       status: "No content",

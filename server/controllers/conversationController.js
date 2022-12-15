@@ -10,7 +10,7 @@ exports.startConversation = async (req, res) => {
     status: "success",
     newConversation,
   });
-};
+};  
 
 // get conversation of a user
 exports.getConversation = async (req, res) => {
