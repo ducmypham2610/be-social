@@ -8,6 +8,7 @@ exports.getUser = async (req, res, next) => {
   console.log(id)
   const user = await User.findById(id);
   const likedById = user.liked_by;
+  console.log(likedById)
   let likedByUsers = [];
   if (likedById.length !== 0) {
     for (const u in likedById) {

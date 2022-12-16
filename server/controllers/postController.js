@@ -98,3 +98,19 @@ exports.likePost = async (req, res) => {
     updatedPost,
   });
 };
+
+exports.findPostsByUserId = async (req,res) => {
+  // console.log(req.params);
+  const userId = req.params.userId;
+  const posts = await Post.find({user:userId});
+  // console.log(posts)
+  if(!posts) {
+    return res.status(204).json({
+      status:"No posts found"
+    })
+  }
+  return res.status(200).json({
+    status:"Found posts",
+    posts
+  })
+}
