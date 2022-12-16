@@ -1,131 +1,106 @@
-import React, { useEffect, useRef, useState } from "react";
-import io from "socket.io-client";
-import Peer from "simple-peer";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import { VideoSDKMeeting } from "@videosdk.live/rtc-js-prebuilt";
+import { getUser } from "../services/userService";
 import { useParams } from "react-router-dom";
-
-const Container = styled.div`
-  padding: 20px;
-  display: flex;
-  height: 100vh;
-  width: 90%;
-  margin: auto;
-  flex-wrap: wrap;
-`;
-
-const StyledVideo = styled.video`
-  height: 40%;
-  width: 50%;
-`;
-
-const Video = (props) => {
-  const ref = useRef();
-
+function Room() {
+  const userId = localStorage.getItem("UserId");
+  const roomId = useParams().id;
+  console.log(roomId)
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    props.peer.on("stream", (stream) => {
-      ref.current.srcObject = stream;
-    });
+    if (userId) {
+      getUser(userId)
+        .then((res) => {
+          setUser(res.data.user);
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
+    }
   }, []);
 
-  return <StyledVideo playsInline autoPlay ref={ref} />;
-};
-
-const videoConstraints = {
-  height: window.innerHeight / 2,
-  width: window.innerWidth / 2,
-};
-
-const Room = (props) => {
-  const [peers, setPeers] = useState([]);
-  const [visible, setVisible] = useState(true);
-  const socketRef = useRef();
-  const userVideo = useRef();
-  const peersRef = useRef([]);
-  const roomID = useParams();
-
-  const toggleVisible = () => {
-    setVisible(!visible);
-  }
-
   useEffect(() => {
-    socketRef.current = io.connect("/");
-    navigator.mediaDevices
-      .getUserMedia({ video: videoConstraints, audio: true })
-      .then((stream) => {
-        userVideo.current.srcObject = stream;
-        socketRef.current.emit("join room", roomID);
-        socketRef.current.on("all users", (users) => {
-          const peers = [];
-          users.forEach((userID) => {
-            const peer = createPeer(userID, socketRef.current.id, stream);
-            peersRef.current.push({
-              peerID: userID,
-              peer,
-            });
-            peers.push(peer);
-          });
-          setPeers(peers);
-        });
+    if (roomId !== null) {
+      const apiKey = "3fba2778-b3ee-488a-abb6-a1347c18ecbe";
+      const meetingId = roomId;
+      const name = user?.name;
+      console.log(meetingId);
+      const config = {
+        name: name,
+        meetingId: meetingId,
+        apiKey: apiKey,
+        containerId: null,
+        redirectOnLeave: "http://localhost:3000/global",
 
-        socketRef.current.on("user joined", (payload) => {
-          const peer = addPeer(payload.signal, payload.callerID, stream);
-          peersRef.current.push({
-            peerID: payload.callerID,
-            peer,
-          });
+        micEnabled: true,
+        webcamEnabled: true,
+        participantCanToggleSelfWebcam: true,
+        participantCanToggleSelfMic: true,
 
-          setPeers((users) => [...users, peer]);
-        });
+        chatEnabled: true,
+        screenShareEnabled: true,
+        pollEnabled: true,
+        whiteboardEnabled: true,
+        raiseHandEnabled: true,
 
-        socketRef.current.on("receiving returned signal", (payload) => {
-          const item = peersRef.current.find((p) => p.peerID === payload.id);
-          item.peer.signal(payload.signal);
-        });
-      });
+        recordingEnabled: true,
+        recordingEnabledByDefault: false,
+        recordingWebhookUrl: "https://www.videosdk.live/callback",
+        recordingAWSDirPath: `/meeting-recordings/${meetingId}/`, // automatically save recording in this s3 path
+
+        brandingEnabled: true,
+        brandLogoURL: "https://picsum.photos/200",
+        brandName: "Awesome startup",
+
+        participantCanLeave: true, // if false, leave button won't be visible
+
+        livestream: {
+          autoStart: true,
+          outputs: [
+            // {
+            //   url: "rtmp://x.rtmp.youtube.com/live2",
+            //   streamKey: "<STREAM KEY FROM YOUTUBE>",
+            // },
+          ],
+        },
+
+        permissions: {
+          askToJoin: false, // Ask joined participants for entry in meeting
+          toggleParticipantMic: true, // Can toggle other participant's mic
+          toggleParticipantWebcam: true, // Can toggle other participant's webcam
+          removeParticipant: true, // Remove other participant from meeting
+          endMeeting: true, // End meeting for all participant
+          drawOnWhiteboard: true, // Can Draw on whiteboard
+          toggleWhiteboard: true, // Can toggle whiteboard
+          toggleRecording: true, // Can toggle recording
+        },
+
+        joinScreen: {
+          visible: false, // Show the join screen ?
+          title: "Daily scrum", // Meeting title
+          meetingUrl: window.location.href, // Meeting joining url
+        },
+
+        pin: {
+          allowed: true, // participant can pin any participant in meeting
+          layout: "SPOTLIGHT", // meeting layout - GRID | SPOTLIGHT | SIDEBAR
+        },
+
+        leftScreen: {
+          // visible when redirect on leave not provieded
+          actionButton: {
+            // optional action button
+            label: "Video SDK Live", // action button label
+            href: "https://videosdk.live/", // action button href
+          },
+        },
+        maxResolution: "hd",
+      };
+
+      const meeting = new VideoSDKMeeting();
+      meeting.init(config);
+    }
   }, []);
-
-  function createPeer(userToSignal, callerID, stream) {
-    const peer = new Peer({
-      initiator: true,
-      trickle: false,
-      stream,
-    });
-
-    peer.on("signal", (signal) => {
-      socketRef.current.emit("sending signal", {
-        userToSignal,
-        callerID,
-        signal,
-      });
-    });
-
-    return peer;
-  }
-
-  function addPeer(incomingSignal, callerID, stream) {
-    const peer = new Peer({
-      initiator: false,
-      trickle: false,
-      stream,
-    });
-
-    peer.on("signal", (signal) => {
-      socketRef.current.emit("returning signal", { signal, callerID });
-    });
-
-    peer.signal(incomingSignal);
-
-    return peer;
-  }
-
-  return (
-    <Container>
-      <StyledVideo muted ref={userVideo} autoPlay playsInline />
-      {peers.map((peer, index) => {
-        return <Video key={index} peer={peer} />;
-      })}
-    </Container>
-  );
-};
+  return <div></div>;
+}
 
 export default Room;

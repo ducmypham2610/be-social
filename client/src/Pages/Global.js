@@ -1,9 +1,6 @@
 import Layout from "../Components/Layout";
 import "../Assets/CSS/Pages/Post.css";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import {  useContext } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -12,7 +9,6 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Avatar } from "@mui/material";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
-import Hashtag from '@mui/icons-material/Tag';
 
 // import Comment from '@mui/icons-material/ShortText';
 
@@ -23,7 +19,11 @@ import FB from "@mui/icons-material/FacebookOutlined";
 import IG from "@mui/icons-material/Instagram";
 
 import Post from "../Components/Post";
-
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import SchoolIcon from "@mui/icons-material/School";
+import ChatIcon from "@mui/icons-material/Chat";
+import Tooltip from "@mui/material/Tooltip";
+import { useNavigate } from "react-router-dom";
 import { getUser } from "../services/userService";
 import { addPost, getPosts } from "../services/postService";
 
@@ -34,9 +34,9 @@ export default function Global() {
   const [fullWidth, setFullWidth] = React.useState(true);
   const [maxWidth, setMaxWidth] = React.useState("md");
   const [textPost, setTextPost] = useState("");
-  const [fileList, setFileList] = useState(null);
+  const [fileList, setFileList] = useState([]);
   const [posts, setPosts] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     getUser(userId)
       .then((res) => setUser(res.data.user))
@@ -56,9 +56,10 @@ export default function Global() {
     setOpen(false);
   };
 
-  const handleSubmitPost = () => {
+  const handleSubmitPost = (e) => {
+    e.preventDefault();
     let formData = new FormData();
-    if (fileList?.length !== 0) {
+    if (fileList.length !== 0) {
       formData.append("image", fileList);
       console.log(fileList);
     }
@@ -69,25 +70,67 @@ export default function Global() {
       .catch((err) => console.log(err));
     console.log(textPost);
     console.log(fileList);
+    handleClose();
   };
 
   const onFileChange = (e) => {
     setFileList(e.target.files[0]);
   };
 
-  const navigate = useNavigate();
-  const contextDataAuth = useContext(AuthContext);
-  const { isAuthen } = contextDataAuth.authContext;
-
-  useEffect(() => {
-      if (isAuthen === null) {
-      navigate("/login");
-      }
-  }, []);
+  const goToRoom = (id) => {
+    navigate(`/room/${id}`);
+  };
 
   return (
     <Layout>
       <div className="Global">
+        <div className="chat-room">
+          <Tooltip title="Study">
+            <Fab
+              sx={{
+                color: "#FFFFFF",
+                background: "#E94057",
+                marginRight: "3%",
+                zIndex: "1",
+                "&:hover": { color: "#942837" },
+              }}
+              onClick={() => goToRoom('study')}
+            >
+              <SchoolIcon />
+            </Fab>
+          </Tooltip>
+
+          <Tooltip title="Entertainment">
+            <Fab
+              sx={{
+                color: "#FFFFFF",
+                background: "#E94057",
+                marginRight: "3%",
+                zIndex: "1",
+                "&:hover": { color: "#942837" },
+              }}
+              onClick={() => goToRoom('entertainment')}
+            >
+              <SportsEsportsIcon />
+            </Fab>
+          </Tooltip>
+
+          <Tooltip title="Chatting">
+            <Fab
+              sx={{
+                color: "#FFFFFF",
+                background: "#E94057",
+                marginRight: "3%",
+                zIndex: "1",
+                "&:hover": { color: "#942837" },
+              }}
+              onClick={() => goToRoom('chat')}
+            >
+              <ChatIcon />
+            </Fab>
+          </Tooltip>
+        </div>
+
         <Dialog
           onClose={handleClose}
           fullWidth={fullWidth}
@@ -192,12 +235,26 @@ export default function Global() {
         {/* NewFeed */}
         <div className="NewFeed">
           <div className="ToolPost">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            {user?.photo ? (
+              <Avatar src={require(`../../public/img/avatar/${user.photo}`)} />
+            ) : (
+              <Avatar
+                sx={{ width: 55, height: 55 }}
+                src="/static/images/avatar/1.jpg"
+                alt={user?.name}
+              />
+            )}
             <Button variant="outlined" onClick={handleClickOpen}>
               What's on your mind?
             </Button>
           </div>
-          {posts && posts.slice().reverse().map((p) => <Post key={p._id} data={p} />)}
+
+          {posts
+            ?.slice()
+            .reverse()
+            .map((p, i) => (
+              <Post key={p._id} data={p} />
+            ))}
         </div>
       </div>
     </Layout>

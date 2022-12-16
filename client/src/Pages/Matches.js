@@ -8,6 +8,7 @@ import Deny from "@mui/icons-material/ClearRounded";
 import axios from "axios";
 // import { getAllMatches } from '../services/userService';
 import { getUser } from "../services/userService";
+import { updateMatches } from "../services/userService";
 
 export default function Matches() {
   const userId = localStorage.getItem("UserId");
@@ -40,7 +41,7 @@ export default function Matches() {
     if (userId) {
       getAllMatches(userId);
     }
-  }, [userId]);
+  }, [userId, matchesUser]);
 
   const calculateAge = (dob) => {
     const yearOfBirth = new Date(dob).getFullYear();
@@ -58,17 +59,40 @@ export default function Matches() {
         </div>
         <div className="MatchBody">
           {likedByUser?.map((character, index) => (
-            <div className="Card" key={index}>
-              <div className="Blur">
-                <div className="CardHeader">
-                  <p>{character.name}, {calculateAge(character.dob)}</p>
+            <div
+              className="Card"
+              style={
+                user?.type === "normal"
+                  ? {
+                      background: `linear-gradient(to right, #f857a6, #ff5858)`,
+                      opacity: "0.99",
+                    }
+                  : {
+                      backgroundImage: `url('/img/avatar/${character.photo}')`,
+                    }
+              }
+              key={index}
+            >
+              {/* <div className="Blur"> */}
+              <div className="CardHeader">
+                {user?.type === "normal" ? (
+                  ""
+                ) : (
+                  <p>
+                    {character.name}, {calculateAge(character.dob)}
+                  </p>
+                )}
+
+                {user?.type !== "normal" && (
                   <div className="CardHeaderIcons">
                     <ButtonGroup
                       size="large"
                       variant="contained"
                       aria-label="outlined primary button group"
                     >
-                      <Button>
+                      <Button
+                        onClick={() => updateMatches(userId, character._id)}
+                      >
                         <Love />
                       </Button>
                       <Button>
@@ -76,17 +100,18 @@ export default function Matches() {
                       </Button>
                     </ButtonGroup>
                   </div>
-                </div>
+                )}
               </div>
+              {/* </div> */}
             </div>
           ))}
 
           {matchesUser?.map((character, index) => (
             <div
               className="Card"
-              style={ user?.type === 'normal' ? {
+              style={{
                 backgroundImage: `url('/img/avatar/${character.photo}')`,
-              } : {}}
+              }}
               key={index}
             >
               <div className="CardHeader">

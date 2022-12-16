@@ -55,9 +55,12 @@ exports.getPostById = async (req, res) => {
 };
 
 exports.updatePost = async (req, res) => {
-  const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  
+  const id = req.params.id;
+  const { content } = req.body;
+  const post = await Post.findByIdAndUpdate
+  (id, { content
+  }, { new: true });
 
   if (!post) {
     return res.status(204).json({
