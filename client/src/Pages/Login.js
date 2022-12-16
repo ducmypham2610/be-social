@@ -44,7 +44,7 @@ export default function Login() {
                 </div>
                 <div className="Title">
                     <h1>WELCOME TO</h1>
-                    <h2>BeDating</h2>
+                    <h2>BeSocial</h2>
                 </div>
                 <div className="ButtonLogin">
                     <Button variant="contained" onClick={signInWithGoogle}>LOGIN</Button>
