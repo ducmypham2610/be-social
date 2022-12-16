@@ -26,7 +26,7 @@ import Profile from "./Pages/Profile";
 import Crush from "./Pages/Crush";
 import RoomFacetimePage from "./Pages/Roompage/facetime";
 import MyProfile from "./Pages/Myprofile";
-
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -45,7 +45,7 @@ function App() {
             <Route path="/room/:roomId" element={<RoomFacetimePage />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
-            <Route path="/payment" element={<Payment />} />
+            <Route path="/payment/:id" element={<Payment />} />
             <Route path="/matches" element={<Matches />} />
             <Route path="/support" element= {<Support/>} />
             <Route path="/policy" element= {<Policy/>} />

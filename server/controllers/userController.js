@@ -1,11 +1,22 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const multer = require("multer");
-const path = require('path');
+const path = require("path");
 
 exports.getUser = async (req, res, next) => {
   const id = req.query.userId;
+  // console.log(id)
   const user = await User.findById(id);
+  const likedById = user.liked_by;
+  // console.log(likedById)
+  let likedByUsers = [];
+  if (likedById.length !== 0) {
+    for (const u in likedById) {
+      const user = await User.findById(likedById[u]);
+      likedByUsers.push(user);
+    }
+  }
+
   if (!user) {
     return res.status(204).json({
       status: "No content",
@@ -14,6 +25,7 @@ exports.getUser = async (req, res, next) => {
   return res.status(200).json({
     status: "success",
     user,
+    likedByUsers,
   });
 };
 
@@ -52,7 +64,7 @@ exports.login = async (req, res, next) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../client/src/Assets/Images");
+    cb(null, "../client/public/img/avatar");
   },
   filename: (req, file, cb) => {
     cb(
@@ -63,20 +75,20 @@ const storage = multer.diskStorage({
 });
 
 exports.uploadImage = multer({
-  storage:storage
-}).single('photo');
+  storage: storage,
+}).single("photo");
 
 exports.updateMe = async (req, res, next) => {
-  console.log("file",req.file);
+  console.log("file", req.file);
   const email = req.body.email;
   let photo;
   const { name, gender, dob, gender_interest, about, address } = req.body;
-  if(req.file) {
+  if (req.file) {
     photo = req.file.filename;
   }
   const user = await User.findOneAndUpdate(
     { email },
-    { name, gender, dob, gender_interest, about, address,photo },
+    { name, gender, dob, gender_interest, about, address, photo },
     { new: true }
   );
 
@@ -97,9 +109,9 @@ exports.updateMe = async (req, res, next) => {
 exports.getGenderInterestUser = async (req, res, next) => {
   const gender = req.query.gender;
   const id = req.query.id;
-  const users = await User.find({ gender,  matches: { $nin: [id] } });
+  const users = await User.find({ gender, matches: { $nin: [id] } });
   return res.status(200).json({
-    status: "success",
+    status: "Success find matches users",
     users,
   });
 };
@@ -110,5 +122,16 @@ exports.getAllMatches = async (req, res, next) => {
   return res.status(200).json({
     status: "success",
     users,
+  });
+};
+
+exports.deny = async (req, res, next) => {
+  const id = req.body.id;
+  const userId = req.body.userId;
+  const user = await User.findByIdAndUpdate({ _id: id }, { $pull: { liked_by: userId } }, { new: true });
+
+  return res.status(200).json({
+    status: "success",
+    user,
   });
 };

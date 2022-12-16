@@ -39,7 +39,7 @@ function Sidebar() {
     getUser(userId)
       .then((res) => {setUser(res.data.user)})
       .catch((err) => console.log(err));
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     getConversations(userId)
@@ -47,7 +47,7 @@ function Sidebar() {
         setConversations(res.data.conversations);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [conversations]);
 
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {

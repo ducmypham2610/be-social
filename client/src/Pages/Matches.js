@@ -23,7 +23,7 @@ export default function Matches() {
         setLikedByUser(res.data.likedByUsers);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [likedByUser]);
   const getAllMatches = async (userId) => {
     try {
       const response = await axios.get(
@@ -49,6 +49,22 @@ export default function Matches() {
     const age = now - yearOfBirth;
     return age;
   };
+
+  const denyUser = async (id, userId) => {
+    try {
+      const response = await axios.patch(
+        "http://localhost:8000/users/deny",
+        {
+          id: id,
+          userId: userId,
+        }
+      );
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   return (
     <Layout>
@@ -95,7 +111,9 @@ export default function Matches() {
                       >
                         <Love />
                       </Button>
-                      <Button>
+                      <Button
+                        onClick={() => denyUser(userId, character._id)}
+                      >
                         <Deny />
                       </Button>
                     </ButtonGroup>

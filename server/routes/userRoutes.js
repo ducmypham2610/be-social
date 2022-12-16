@@ -9,5 +9,6 @@ router.post('/login',userController.login);
 router.get('/user',userController.getUser);
 router.get('/gendered-users',userController.getGenderInterestUser);
 router.get('/get-matches',userController.getAllMatches);
+router.patch('/deny',userController.deny);
 
 module.exports = router;

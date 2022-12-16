@@ -15,7 +15,7 @@ exports.startConversation = async (req, res) => {
 // get conversation of a user
 exports.getConversation = async (req, res) => {
   const userId = req.params.userId;
-  console.log(userId)
+  // console.log(userId)
   const conversations = await Conversation.find({
     members: { $in: [userId] },
   });
