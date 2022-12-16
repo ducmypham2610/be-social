@@ -47,9 +47,10 @@ function Sidebar() {
     getConversations(userId)
       .then((res) => {
         setConversations(res.data.conversations);
+        console.log(res)
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [userId]);
 
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
