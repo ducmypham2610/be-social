@@ -340,7 +340,7 @@ a{
     .footer{
         display: flex;
         bottom: 0;
-        position: fixed;
+        position: sticky;
         height: 8vh;
         /* margin-left: 16px; */
         background-color: #ffffff;

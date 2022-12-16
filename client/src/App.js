@@ -26,8 +26,6 @@ import Profile from "./Pages/Profile";
 import Crush from "./Pages/Crush";
 import RoomFacetimePage from "./Pages/Roompage/facetime";
 import MyProfile from "./Pages/Myprofile";
-import "react-toastify/dist/ReactToastify.css";
-import Room from "./Pages/Room";
 
 
 function App() {
@@ -38,22 +36,24 @@ function App() {
         <Router>
           {/* <Layout> */}
           <Routes>
-          <Route path="/" element={<Welcome />} />
+            <Route path="/" element={<Welcome />} />
             <Route path="/aboutme" element={<About />} />
-            <Route exact path="/room/:id" element={<Room />} />
-            <Route path="/chill" element={<Chill />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/global" element={<Global />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/messages/:friendId" element={<Messages />} />
+            <Route path="/room/:roomId" element={<RoomFacetimePage />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
-            <Route path="/payment/:id" element={<Payment />} />
+            <Route path="/payment" element={<Payment />} />
             <Route path="/matches" element={<Matches />} />
-            <Route path="/support" element={<Support />} />
-            <Route path="/policy" element={<About />} />
-            <Route path="/crush" element={<Crush />} />
+            <Route path="/support" element= {<Support/>} />
+            <Route path="/policy" element= {<Policy/>} />
+            <Route path="/chill" element= {<Chill/>} />
+            <Route path="/started" element= {<Intro/>} />
+            <Route path="/started" element= {<Profile/>} />
+            <Route path="/crush" element= {<Crush/>} />
+            <Route path="/profile" element= {<MyProfile/>} />
           </Routes>
           {/* </Layout> */}
         </Router>

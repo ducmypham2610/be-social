@@ -87,8 +87,8 @@ Listen to your heart's silent reminder after an endless day that you may have fo
                 <TabPanel value={value} index={0}>
                     <div className="ChillHeader">
                         <h3>BePODCAST</h3>
-                        <p>One podcast a day, listen and share with BeSocial Cloud's stories. Thank you MAY Podcast for accompanying BeSocial in the journey to touch people's hearts. The podcast was born with the purpose of healing, talking, and sharing about the life around us.
-    Listen to your heart's silent reminder after an endless day that you may have forgotten. There will be a world of your own, only you have the right to contemplate, decide and imagine your "crazy" things. Welcome to BeSocial x MAY Podcast's podcast journey.</p>
+                        <p>One podcast a day, listen and share with BeDating Cloud's stories. Thank you MAY Podcast for accompanying BeDating in the journey to touch people's hearts. The podcast was born with the purpose of healing, talking, and sharing about the life around us.
+    Listen to your heart's silent reminder after an endless day that you may have forgotten. There will be a world of your own, only you have the right to contemplate, decide and imagine your "crazy" things. Welcome to BeDating x MAY Podcast's podcast journey.</p>
                     </div>
                     <div className="ChillBody">
                         <iframe style={{borderRadius:'15px'}} src="https://open.spotify.com/embed/show/2dW02JWWfmvEivVRMF97WM?utm_source=generator&theme=0" width="1200px" height="352px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -97,7 +97,7 @@ Listen to your heart's silent reminder after an endless day that you may have fo
                 <TabPanel value={value} index={1}>
                     <div className="ChillHeader">
                         <h3>BeCHILL</h3>
-                        <p>This is the music list selected by BeSocial to help give you a feeling of lightness and relaxation for a busy day. Maybe in everyday life, sometimes we have a lot of choices, but that will be one of the motivations to help us try harder in the future.
+                        <p>This is the music list selected by BeDating to help give you a feeling of lightness and relaxation for a busy day. Maybe in everyday life, sometimes we have a lot of choices, but that will be one of the motivations to help us try harder in the future.
 Let go of all your worries, and immerse yourself in a relaxing space from BeChill. <br/> Let's find friends with BeChill to share all your emotions with BeChill.</p>
                     </div>
                     <div className="ChillBody">

@@ -80,6 +80,7 @@ export default function Matches() {
               </div>
             </div>
           ))}
+
           {matchesUser?.map((character, index) => (
             <div
               className="Card"
@@ -100,4 +101,3 @@ export default function Matches() {
     </Layout>
   );
 }
-
