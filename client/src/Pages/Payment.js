@@ -127,7 +127,7 @@ export default function Payment() {
               </tr>
               <tr>
                 <th>{premium?.name}</th>
-                <td>{premium?.price}</td>
+                <td>{premium?.price} VND</td>
               </tr>
               <tr>
                 <th colSpan={2}>
@@ -136,7 +136,7 @@ export default function Payment() {
               </tr>
               <tr>
                 <th>Total</th>
-                <td>{premium?.price}</td>
+                <td>{premium?.price} VND</td>
               </tr>
             </table>
             <h3>Transfer Contents</h3>

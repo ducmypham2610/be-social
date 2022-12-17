@@ -1,5 +1,5 @@
+import axios from "axios";
 import {
-  API_LOGIN,
   API_GET_USER,
   API_GET_GENDERED_USERS,
   API_GET_MATCHES,
@@ -26,3 +26,17 @@ export const updateMatches = async (userId, swipedUserId) => {
     swipedUserId,
   });
 };
+
+export const getAllMatches = async (userId) => {
+  return axiosClient.get(API_GET_MATCHES, {
+    params: { userId },
+  });
+};
+
+export const updateProfile = async (formData) => {
+  return axios.put(API_USER_UPDATE, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    }
+  })
+}

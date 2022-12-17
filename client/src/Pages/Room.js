@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { VideoSDKMeeting } from "@videosdk.live/rtc-js-prebuilt";
 import { getUser } from "../services/userService";
 import { useParams } from "react-router-dom";
+import {VideoSDKMeeting} from "@videosdk.live/rtc-js-prebuilt";
 function Room() {
   const userId = localStorage.getItem("UserId");
   const roomId = useParams().id;
@@ -75,7 +75,7 @@ function Room() {
         },
 
         joinScreen: {
-          visible: false, // Show the join screen ?
+          visible: true, // Show the join screen ?
           title: "Daily scrum", // Meeting title
           meetingUrl: window.location.href, // Meeting joining url
         },

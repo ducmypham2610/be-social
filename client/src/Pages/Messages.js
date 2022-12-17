@@ -14,6 +14,9 @@ import UserImage from "../Components/UserImage";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 
+import Jisoo from "../Assets/Images/Cloud/Jisoo2.jpg";
+import Jisoo2 from "../Assets/Images/Cloud/Jisoo.jpg";
+
 import { io } from "socket.io-client";
 import { getUser } from "../services/userService";
 import {
@@ -24,8 +27,12 @@ import axios from "axios";
 import Conversation from "../Components/Conversation";
 import Message from "../Components/Message";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Messages() {
+  const [fileList, setFileList] = useState(null);
+
+  const navigate = useNavigate();
   const { friendId } = useParams();
   const socket = useRef();
   const scrollRef = useRef();
@@ -76,7 +83,6 @@ export default function Messages() {
     socket.current.emit("addUser", user._id);
   }, [user]);
 
-
   useEffect(() => {
     const getMessages = async () => {
       try {
@@ -113,8 +119,7 @@ export default function Messages() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/messages",
-        message
+        "http://localhost:8000/messages",message
       );
       setMessages([...messages, response.data.newMessage]);
       setNewMessage("");
@@ -126,9 +131,9 @@ export default function Messages() {
   const calculateAge = (dob) => {
     const yearOfBirth = new Date(dob).getFullYear();
     const now = new Date().getFullYear();
-    const age = now - yearOfBirth
+    const age = now - yearOfBirth;
     return age;
-  }
+  };
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -136,24 +141,25 @@ export default function Messages() {
 
   const submitMessage = async (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       const message = {
         sender: user._id,
         text: newMessage,
         conversationId: currentChat._id,
       };
-  
+
       const receiverId = currentChat.members.find(
         (member) => member !== user._id
       );
-  
+
       document.getElementById("input-text").value = "";
-  
+
       socket.current.emit("sendMessage", {
         senderId: user._id,
         receiverId,
         text: newMessage,
       });
-  
+
       try {
         const response = await axios.post(
           "http://localhost:8000/messages",
@@ -165,7 +171,15 @@ export default function Messages() {
         console.log(err);
       }
     }
-  }
+  };
+
+  const videoCall = (id) => {
+    navigate(`/room/${id}`);
+  };
+
+  const onFileChange = (e) => {
+    setFileList(e.target.files[0]);
+  };
 
   return (
     <Layout>
@@ -179,6 +193,7 @@ export default function Messages() {
                 color="primary"
                 aria-label="add"
                 style={{ background: "#E94057", zIndex: "1" }}
+                onClick={() => videoCall(currentChat?._id)}
               >
                 <Facetime />
               </Fab>
@@ -186,7 +201,7 @@ export default function Messages() {
             <div className="History">
               {currentChat ? (
                 <div>
-                  {messages.map((m,index) => (
+                  {messages.map((m, index) => (
                     <div key={index} ref={scrollRef}>
                       <Message message={m} own={m.sender === user._id} />
                     </div>
@@ -198,72 +213,88 @@ export default function Messages() {
                 </span>
               )}
             </div>
-            <div className="ToolBox">
-              <div className="image">
-                <Fab
-                  size="small"
-                  color="primary"
-                  aria-label="add"
-                  style={{ backgroundColor: "#F27121" }}
-                >
-                  <Images />
-                </Fab>
-              </div>
-              <div className="voice">
-                <Fab
-                  size="small"
-                  color="primary"
-                  aria-label="add"
-                  style={{ backgroundColor: "#8A2BE2" }}
-                >
-                  <MicIcon />
-                </Fab>
-              </div>
-              <div className="file">
-                <Fab
-                  size="small"
-                  color="primary"
-                  aria-label="add"
-                  style={{ backgroundColor: "#2374E1" }}
-                >
-                  <FB />
-                </Fab>
-              </div>
-              <div className="file">
-                <Fab
-                  size="small"
-                  color="primary"
-                  aria-label="add"
-                  style={{ backgroundColor: "#e94057" }}
-                >
-                  <IG />
-                </Fab>
-              </div>
-              <div className="text">
-                <input
-                  id="input-text"
-                  type="text"
-                  placeholder="Type a message"
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  onKeyDown={submitMessage}
-                />
-              </div>
-              <div className="send">
-                <Fab
-                  size="small"
-                  color="primary"
-                  aria-label="add"
-                  style={{ backgroundColor: "#e94057" }}
-                >
-                  <SendIcon onClick={handleSubmit} />
-                </Fab>
-              </div>
+            <div>
+              <form className="ToolBox">
+                <label htmlFor="upload-photo" className="image">
+                  <input
+                    style={{ display: "none" }}
+                    id="upload-photo"
+                    name="upload-photo"
+                    type="file"
+                    onChange={onFileChange}
+                  />
+                  <Fab
+                    size="small"
+                    color="primary"
+                    aria-label="add"
+                    style={{ backgroundColor: "#F27121" }}
+                  >
+                    <Images />
+                  </Fab>
+                </label>
+                <div className="voice">
+                  <Fab
+                    size="small"
+                    color="primary"
+                    aria-label="add"
+                    style={{ backgroundColor: "#8A2BE2" }}
+                  >
+                    <MicIcon />
+                  </Fab>
+                </div>
+                <div className="file">
+                  <Fab
+                    size="small"
+                    color="primary"
+                    aria-label="add"
+                    style={{ backgroundColor: "#2374E1" }}
+                  >
+                    <FB />
+                  </Fab>
+                </div>
+                <div className="file">
+                  <Fab
+                    size="small"
+                    color="primary"
+                    aria-label="add"
+                    style={{ backgroundColor: "#e94057" }}
+                  >
+                    <IG />
+                  </Fab>
+                </div>
+                <div className="text">
+                  <input
+                    id="input-text"
+                    type="text"
+                    placeholder="Type a message"
+                    onChange={(e) => setNewMessage(e.target.value)}
+                    onKeyDown={submitMessage}
+                  />
+                </div>
+                <div className="send">
+                  <Fab
+                    size="small"
+                    color="primary"
+                    aria-label="add"
+                    style={{ backgroundColor: "#e94057" }}
+                  >
+                    <SendIcon
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleSubmit();
+                      }}
+                    />
+                  </Fab>
+                </div>
+              </form>
             </div>
           </div>
         </div>
         <div className="Profile">
           <div className="Main">
-            {friend?.photo && <img src={require(`../Assets/Images/Cloud/${friend.photo}`)} />}
+            {friend?.photo && (
+              <img src={require(`../../public/img/avatar/${friend.photo}`)} />
+            )}
           </div>
           <div className="Info">
             <div className="Name">

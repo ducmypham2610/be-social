@@ -18,6 +18,7 @@ export default function Premium() {
           id: item._id,
           name: item.name,
           price: item.price,
+          time:item.time,
           description: item.description.split("."),
         };
       });
@@ -59,7 +60,8 @@ export default function Premium() {
                 >
                   {item.name}
                 </h1>
-                <p>{item.price}</p>
+                <p>{item.price} VND / {item.time !== 1 ? item.time : ""} {item.time > 1 ? "Months" : "Month"}
+                </p>
               </div>
               <div className="Button">
                 <Button

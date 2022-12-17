@@ -24,7 +24,7 @@ import Intro from './Pages/Intro';
 import AuthContextProvider from "./context/AuthContext";
 import Profile from "./Pages/Profile";
 import Crush from "./Pages/Crush";
-import RoomFacetimePage from "./Pages/Roompage/facetime";
+import Room from "./Pages/Room";
 import MyProfile from "./Pages/Myprofile";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -42,7 +42,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/global" element={<Global />} />
             <Route path="/messages/:friendId" element={<Messages />} />
-            <Route path="/room/:roomId" element={<RoomFacetimePage />} />
+            <Route path="/room/:id" element={<Room />} />
             <Route path="/facetime" element={<Facetime />} />
             <Route path="/premium" element={<Premium />} />
             <Route path="/payment/:id" element={<Payment />} />
